@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Audio
   - DemonKIng
+  - NPC
   layers:
   - Default
   - TransparentFX
