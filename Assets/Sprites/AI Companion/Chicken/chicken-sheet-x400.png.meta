@@ -1,0 +1,3299 @@
+fileFormatVersion: 2
+guid: 3e4f5f8ee88dadf40807417fb5a9e527
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chicken-sheet-x400_0
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 4894
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27566ddb93a039499f751dad426ec7f
+      internalID: 1501783735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 4894
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d0882a0436e204a88a42aafa3150e2
+      internalID: 1378958329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_2
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 4894
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3d71e9bd20c854c961507ccefecdab
+      internalID: 1698895805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_3
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 4894
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 684fd676a03050e40b4ec945ed025349
+      internalID: -477755222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 4668
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ffafca3b80eb441a1e39e9610cc2ca
+      internalID: -2097866838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_5
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 4668
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b70937c97808e40a16f9ed1d1057b2
+      internalID: -1442385988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_6
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 4668
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26d02b3e71379346baebce20ae78971
+      internalID: 524953231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_7
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 4668
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f045ad1846dcc4e9254f9744f1f115
+      internalID: 1801546809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_8
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 4668
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a370950e69c9c46a957ff7c280d384
+      internalID: -1090676017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_9
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d141569ac19ef541b1786c6d606ec96
+      internalID: 1816735745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_10
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b621d36a829af24d989ac5b893cf20f
+      internalID: -1007371380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_11
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5025c2cf1f2daf6478aea3f9299504ee
+      internalID: -1383192679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_12
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc2515b7f5185b14aa7eebcbd871bae5
+      internalID: 1420549897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_13
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639d416876c58c645a4af847f4184932
+      internalID: 717082863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_14
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e8228104935e744b29da644123936a
+      internalID: 635788991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_15
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5514a6e6a0e794b459cb67234ab3a963
+      internalID: -1928160474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_16
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222ee5596ba2a6c4ba9145179156225e
+      internalID: -1126544046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_17
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8a526c754ac4d48a1fda6889f95f76
+      internalID: 1815125852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_18
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 4442
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1479db06f597d7c4995126b57d4bf9fa
+      internalID: 639327488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_19
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f0f95f744298e49b1d174e3c5d00bf
+      internalID: 895156015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_20
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94058f5a4adba0e4da5eba74760c2d79
+      internalID: -1352375593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_21
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8034b5427db3e24e8dcad7253f72e50
+      internalID: -1043577630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_22
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d39d1531d00314a8656bb75680dd28
+      internalID: 1541857145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_23
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43931e8503cf9724f9a02d7f68fb29e4
+      internalID: -1287240103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_24
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edba4ca6ae25a954b8f53d5e5eea4e1d
+      internalID: -2100942930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_25
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e4ea68e721a354fb42b3774343d2a6
+      internalID: -303018853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_26
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b38904881267f147a3d41f0294d541a
+      internalID: 1074910377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_27
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d0fc13be36b414393f5be3726d051f
+      internalID: 1386169077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_28
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 4329
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5cc17942707a574f9fbc22fa16a77a1
+      internalID: 1336432233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_29
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 4103
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506305da2e832164fa7d51a479d39794
+      internalID: -178199969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_30
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 4103
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df131b3b8cd416c4d84cf1eeca6c5045
+      internalID: 1776557756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_31
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3877
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f7f5df669696740a5f9b6ee27d8c55
+      internalID: 1006361939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_32
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 3877
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d765c5ebee964498d73a854417a03d
+      internalID: -350173050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_33
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 3877
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7745b7b874841d48b0c584edd2f1124
+      internalID: 1124655510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_34
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3651
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba232f20d6196644854d56eb092b4eb
+      internalID: 2034197168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_35
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 3651
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a75cf0d30d0a8f46af93cb546e80f94
+      internalID: -236771325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_36
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3425
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b326dbabfd6c514682460d508b7a2eb
+      internalID: 1390810920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_37
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 3425
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8669c7a65b20bca4883cb7880d48782a
+      internalID: 1753168589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_38
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3312
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb35734d4552aa4fb26aabb64363881
+      internalID: 2125806475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_39
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 3312
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4a9f52797db364c964f8879fe6097a
+      internalID: -1782069737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_40
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 3199
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bcde76a48a36e46af23ea18fa823c0
+      internalID: 2052571719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_41
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 3199
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b697367f911244abb70d14cc5ae310
+      internalID: 2010868746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_42
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 3199
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d68bcf891e74f04e8255ef68f224284
+      internalID: 1757909939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_43
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 3199
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84de47f7838205645a7a9f4dc051bcb9
+      internalID: -1167739139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_44
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 3199
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b232c79c4aaaa784eb45ec78d06b4c50
+      internalID: 64428144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_45
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 3199
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb5122ebb865044391d2b936489dfff
+      internalID: 2079399643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_46
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0abcd668c0678c42b2850a163970339
+      internalID: 577962597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_47
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6fe26cb3c937ea43b72eb2080365842
+      internalID: 1840217525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_48
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efa33b9e0a1b2e648bdbb2f046b042cb
+      internalID: -2047622694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_49
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113e96f1aba8f0d4dbef9fe09bde16f2
+      internalID: 218518391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_50
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d568daa1fe54d54db98aca2cfd0f740
+      internalID: -471262380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_51
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595d51881b8d5eb4483f9104c72b5e42
+      internalID: 65511208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_52
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f01dd0e6f4a0543ab20d5620f3fc4a
+      internalID: 1632606919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_53
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7759c8e30b930a43a72f57ca0ddae77
+      internalID: -450999299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_54
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeb850bcf6686a4bb04833075654c21
+      internalID: 945557855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_55
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146823404a084434f8b12a201f09b133
+      internalID: -1896888733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_56
+      rect:
+        serializedVersion: 2
+        x: 2666
+        y: 3086
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9632f7fe1a8a6e40ba375b5b93c2a9e
+      internalID: 2059413140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_57
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2860
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a3e9e10ff8a474bbf9f663c7d4cb45
+      internalID: -2007075043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_58
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 2860
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7279569fbb7f2e46a33dd5015118962
+      internalID: 1191525049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_59
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2634
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070cde97dc482244db130c283cd63fa2
+      internalID: 7044055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_60
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 2634
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a0b4b8f88738f4185964218fad3582
+      internalID: 2126731773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_61
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 2634
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe7286caa77f7f47a82bffe12b79fef
+      internalID: -1334115170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_62
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 2634
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201e4dd690c403a4dabe5f3d876be019
+      internalID: -1548019094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_63
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2408
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3642b6fe3c53cfe408b0955e0340840f
+      internalID: -157657004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_64
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 2408
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d84de34d7e44a047a6d3c248e03a428
+      internalID: -193849075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_65
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2295
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0247668680c6e849b5d12b544e9fc92
+      internalID: -1023648682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_66
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 2295
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ed3f4362d4ca647b079c4b53c4d991
+      internalID: -1800378923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_67
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2069
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c729c2ffbe7194f8170f6d6e6b2b38
+      internalID: 1352019549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_68
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 2069
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea93a06b36d6f3c4aab8669c4c677afc
+      internalID: -1223147749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_69
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1843
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0803fe688449b30468687a8b7b0adf8e
+      internalID: -1415763103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_70
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1843
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa8180a7298f264f88c37d289a23b8a
+      internalID: 876906957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_71
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1843
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f91efda78361346beb3a3396081611
+      internalID: -345933087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_72
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1843
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4885ed9cd9ae3d044b734eff86020d52
+      internalID: 1927990597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_73
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1617
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c78e574e58d6d49b380290a7483f2d
+      internalID: 411713977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_74
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1617
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e89872a56f478b439f3e379799ec543
+      internalID: 1318088837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_75
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1617
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4f3122dc0ca2a4284a7f88a53f1c83
+      internalID: 96095602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_76
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1617
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c01f933f83f19f41917e968d3b9c0cf
+      internalID: -2110321038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_77
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1504
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5dcee3568bbf94cbb6ec18d3a02cef
+      internalID: -1640083133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_78
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1504
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6eb00a158965e0419cf2256bc99801d
+      internalID: -1110618440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_79
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1504
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a760e895cfde9ed43b77c91c7616d5f8
+      internalID: -255630618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_80
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1504
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d03ef2b0cba05441886a3319353fb1c
+      internalID: -1683710494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_81
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1391
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2761004546ea616478b6630a75b95f45
+      internalID: -1276718902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_82
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1391
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f458101437c12474ba8e3a05010ef063
+      internalID: -834950321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_83
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1391
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71b981aec700094d886fc0a997b1e70
+      internalID: -336439212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_84
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1391
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dcba079e6331464ea52df4dd1e39b83
+      internalID: 1003844432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_85
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1278
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4a816676e40064ba2ee1f929063ca6
+      internalID: -231087161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_86
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1278
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2616a564c76f13a44afddd2cd38bce30
+      internalID: 231737951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_87
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1278
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c283d9c040d684db263be0d1e0127c
+      internalID: 1488996748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_88
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1278
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba851614ac0304a4497666f8236a6f54
+      internalID: 1290524035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_89
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1052
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd0c78f0ecfc9143ba69a7da426679a
+      internalID: 544934587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_90
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1052
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4531f9d19e86ba848bcc14f56e784084
+      internalID: -1304211109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_91
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1052
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e20bfebdf28e24dab7a92c3eef50d9
+      internalID: -1833028430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_92
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1052
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657bbe0c8947dee4d807a595b0ef1a43
+      internalID: -1611421652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_93
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1052
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d3a8790c1f23bf46928ae47771422b1
+      internalID: 976954176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bed3cc70df8d3a41b833e221c1bd9fc
+      internalID: 1919791705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_95
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08ad440c2ebf2f48a7a05fc381813c7
+      internalID: 460582651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_96
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f0ce5f8e14e4014a99e70f02861686c
+      internalID: 1552964705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_97
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5486e23ebd406b443ac78ac64f86951f
+      internalID: 78124937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_98
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a1fc7180ac51e46a951b65b373f6b0
+      internalID: -248996313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_99
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234bdfd008828b349a2565911cc64c5b
+      internalID: -238764946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_100
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4c7258a3b65f44f99d0f55337ebb69
+      internalID: -374164474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_101
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4c00979603e8a429c273b4223e25ea
+      internalID: -2003964472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_102
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6fe9783cfe8c384b82eb1429856cada
+      internalID: -1346902240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_103
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09cb3ba739c2ad948b8b28383e2f6671
+      internalID: -1537481680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_104
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 826
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e77d906b4c17a342ad1ba8110fee8f2
+      internalID: 1766846401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_105
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 600
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221ca7d56b933bb4987ff798e3481808
+      internalID: -2125587025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_106
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 600
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c3bea178ade0844b0ee2172c21d7ac
+      internalID: -1605324002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_107
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 600
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5a7a18348d53345a63503b9c3897a9
+      internalID: 1958166697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_108
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 487
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3fb2991b3351740bf11871cb8f12e4
+      internalID: 1573062125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_109
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 487
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3177c94ff06955d459d26822c4c0cb35
+      internalID: 790745061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_110
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 487
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf607bf2c2951d479d30ceefb10b05e
+      internalID: -1460743577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_111
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e4c4d56249ea048a97ee4023ee62b5
+      internalID: 159877914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_112
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c04a23c1a2a29b4d9beff5bbd4c2887
+      internalID: -527396938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_113
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 248c5c18f5da8a04fa256fac4531049a
+      internalID: -736164414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_114
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6c9ab92790a804abf3a36ee5816f74
+      internalID: 1937008439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_115
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1125f96231818f458efbc592fcb6d43
+      internalID: 1933162067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_116
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535875b5049e3ad48b804fc55ef6870e
+      internalID: -1697559388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_117
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ecf3cdab89ccf04a9005858ed544f02
+      internalID: -929198677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_118
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 374
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c7f7d6547eaaa4d877392a906fd4bd
+      internalID: -1941034119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_119
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c9dfae2daaae143ab05c43b5c51796
+      internalID: 1401297911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_120
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7bf6fee064f2e49b17b764762a42c1
+      internalID: -653203984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_121
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0433c15f86527340a53f970366dc380
+      internalID: -1388879697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_122
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a18d16384923744ae102e869bf9715
+      internalID: 2093463991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_123
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768748deab9b61849924e74216d1faf3
+      internalID: -1449390747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_124
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c0f60a0c340d44788e73b7235f2f77
+      internalID: -1533960812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_125
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c891df785d7da0c4a85daa0e4a49f9e2
+      internalID: -251997673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_126
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aabf74e59f081014ba7a44603d922521
+      internalID: -782562569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_127
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d1b08f026602e47b60be3030d72a23
+      internalID: 2124690325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_128
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c31dc5b2352f1c4683e219555f12195
+      internalID: 1764207010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_129
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094476528c9ae5949beff1227f2ebfa9
+      internalID: -876713350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_130
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8586809a7850f714ca24e6a04f01019f
+      internalID: -1755230425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_131
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 261
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0eba2dd1fb545e4193b7482fa67cd86
+      internalID: -1605835753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_132
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552694c19a8b3ce4980c791a85fb66b2
+      internalID: -1457545083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_133
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 148
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a8da23360f07344a0223fbe20b5049
+      internalID: 1052909660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_134
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 148
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f219d6840de9f46b02713b3891f8c4
+      internalID: 446526550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_135
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 148
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e12472313c5c946b53db3853446d5c
+      internalID: -1379055028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_136
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a822e94459e0fe64fb8a2919a4d16e8d
+      internalID: -2065809202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_137
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 35
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eec3f7bfe4fd054d878e504da542e75
+      internalID: 714608018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_138
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 35
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db11f62bcca6dbb4e9e65268829f3b6d
+      internalID: 918647851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_139
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 35
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec2b643952a0d84abe1da3a2b5da7f7
+      internalID: 1921975184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_140
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 35
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a599e62260e9e4a97e95daaee390dc
+      internalID: 1292158390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_141
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 35
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088633092cdc97e469c2de3c5026ddde
+      internalID: 1473792857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-sheet-x400_142
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 35
+        width: 86
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a0181da1737c54fb05534e84c1341c
+      internalID: -917874871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      chicken-sheet-x400_0: 1501783735
+      chicken-sheet-x400_1: 1378958329
+      chicken-sheet-x400_10: -1007371380
+      chicken-sheet-x400_100: -374164474
+      chicken-sheet-x400_101: -2003964472
+      chicken-sheet-x400_102: -1346902240
+      chicken-sheet-x400_103: -1537481680
+      chicken-sheet-x400_104: 1766846401
+      chicken-sheet-x400_105: -2125587025
+      chicken-sheet-x400_106: -1605324002
+      chicken-sheet-x400_107: 1958166697
+      chicken-sheet-x400_108: 1573062125
+      chicken-sheet-x400_109: 790745061
+      chicken-sheet-x400_11: -1383192679
+      chicken-sheet-x400_110: -1460743577
+      chicken-sheet-x400_111: 159877914
+      chicken-sheet-x400_112: -527396938
+      chicken-sheet-x400_113: -736164414
+      chicken-sheet-x400_114: 1937008439
+      chicken-sheet-x400_115: 1933162067
+      chicken-sheet-x400_116: -1697559388
+      chicken-sheet-x400_117: -929198677
+      chicken-sheet-x400_118: -1941034119
+      chicken-sheet-x400_119: 1401297911
+      chicken-sheet-x400_12: 1420549897
+      chicken-sheet-x400_120: -653203984
+      chicken-sheet-x400_121: -1388879697
+      chicken-sheet-x400_122: 2093463991
+      chicken-sheet-x400_123: -1449390747
+      chicken-sheet-x400_124: -1533960812
+      chicken-sheet-x400_125: -251997673
+      chicken-sheet-x400_126: -782562569
+      chicken-sheet-x400_127: 2124690325
+      chicken-sheet-x400_128: 1764207010
+      chicken-sheet-x400_129: -876713350
+      chicken-sheet-x400_13: 717082863
+      chicken-sheet-x400_130: -1755230425
+      chicken-sheet-x400_131: -1605835753
+      chicken-sheet-x400_132: -1457545083
+      chicken-sheet-x400_133: 1052909660
+      chicken-sheet-x400_134: 446526550
+      chicken-sheet-x400_135: -1379055028
+      chicken-sheet-x400_136: -2065809202
+      chicken-sheet-x400_137: 714608018
+      chicken-sheet-x400_138: 918647851
+      chicken-sheet-x400_139: 1921975184
+      chicken-sheet-x400_14: 635788991
+      chicken-sheet-x400_140: 1292158390
+      chicken-sheet-x400_141: 1473792857
+      chicken-sheet-x400_142: -917874871
+      chicken-sheet-x400_15: -1928160474
+      chicken-sheet-x400_16: -1126544046
+      chicken-sheet-x400_17: 1815125852
+      chicken-sheet-x400_18: 639327488
+      chicken-sheet-x400_19: 895156015
+      chicken-sheet-x400_2: 1698895805
+      chicken-sheet-x400_20: -1352375593
+      chicken-sheet-x400_21: -1043577630
+      chicken-sheet-x400_22: 1541857145
+      chicken-sheet-x400_23: -1287240103
+      chicken-sheet-x400_24: -2100942930
+      chicken-sheet-x400_25: -303018853
+      chicken-sheet-x400_26: 1074910377
+      chicken-sheet-x400_27: 1386169077
+      chicken-sheet-x400_28: 1336432233
+      chicken-sheet-x400_29: -178199969
+      chicken-sheet-x400_3: -477755222
+      chicken-sheet-x400_30: 1776557756
+      chicken-sheet-x400_31: 1006361939
+      chicken-sheet-x400_32: -350173050
+      chicken-sheet-x400_33: 1124655510
+      chicken-sheet-x400_34: 2034197168
+      chicken-sheet-x400_35: -236771325
+      chicken-sheet-x400_36: 1390810920
+      chicken-sheet-x400_37: 1753168589
+      chicken-sheet-x400_38: 2125806475
+      chicken-sheet-x400_39: -1782069737
+      chicken-sheet-x400_4: -2097866838
+      chicken-sheet-x400_40: 2052571719
+      chicken-sheet-x400_41: 2010868746
+      chicken-sheet-x400_42: 1757909939
+      chicken-sheet-x400_43: -1167739139
+      chicken-sheet-x400_44: 64428144
+      chicken-sheet-x400_45: 2079399643
+      chicken-sheet-x400_46: 577962597
+      chicken-sheet-x400_47: 1840217525
+      chicken-sheet-x400_48: -2047622694
+      chicken-sheet-x400_49: 218518391
+      chicken-sheet-x400_5: -1442385988
+      chicken-sheet-x400_50: -471262380
+      chicken-sheet-x400_51: 65511208
+      chicken-sheet-x400_52: 1632606919
+      chicken-sheet-x400_53: -450999299
+      chicken-sheet-x400_54: 945557855
+      chicken-sheet-x400_55: -1896888733
+      chicken-sheet-x400_56: 2059413140
+      chicken-sheet-x400_57: -2007075043
+      chicken-sheet-x400_58: 1191525049
+      chicken-sheet-x400_59: 7044055
+      chicken-sheet-x400_6: 524953231
+      chicken-sheet-x400_60: 2126731773
+      chicken-sheet-x400_61: -1334115170
+      chicken-sheet-x400_62: -1548019094
+      chicken-sheet-x400_63: -157657004
+      chicken-sheet-x400_64: -193849075
+      chicken-sheet-x400_65: -1023648682
+      chicken-sheet-x400_66: -1800378923
+      chicken-sheet-x400_67: 1352019549
+      chicken-sheet-x400_68: -1223147749
+      chicken-sheet-x400_69: -1415763103
+      chicken-sheet-x400_7: 1801546809
+      chicken-sheet-x400_70: 876906957
+      chicken-sheet-x400_71: -345933087
+      chicken-sheet-x400_72: 1927990597
+      chicken-sheet-x400_73: 411713977
+      chicken-sheet-x400_74: 1318088837
+      chicken-sheet-x400_75: 96095602
+      chicken-sheet-x400_76: -2110321038
+      chicken-sheet-x400_77: -1640083133
+      chicken-sheet-x400_78: -1110618440
+      chicken-sheet-x400_79: -255630618
+      chicken-sheet-x400_8: -1090676017
+      chicken-sheet-x400_80: -1683710494
+      chicken-sheet-x400_81: -1276718902
+      chicken-sheet-x400_82: -834950321
+      chicken-sheet-x400_83: -336439212
+      chicken-sheet-x400_84: 1003844432
+      chicken-sheet-x400_85: -231087161
+      chicken-sheet-x400_86: 231737951
+      chicken-sheet-x400_87: 1488996748
+      chicken-sheet-x400_88: 1290524035
+      chicken-sheet-x400_89: 544934587
+      chicken-sheet-x400_9: 1816735745
+      chicken-sheet-x400_90: -1304211109
+      chicken-sheet-x400_91: -1833028430
+      chicken-sheet-x400_92: -1611421652
+      chicken-sheet-x400_93: 976954176
+      chicken-sheet-x400_94: 1919791705
+      chicken-sheet-x400_95: 460582651
+      chicken-sheet-x400_96: 1552964705
+      chicken-sheet-x400_97: 78124937
+      chicken-sheet-x400_98: -248996313
+      chicken-sheet-x400_99: -238764946
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
