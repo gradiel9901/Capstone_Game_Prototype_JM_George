@@ -1,125 +1,185 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
 public class NPCInteraction : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private GameObject dialogueBox;     // The dialogue UI panel
-    [SerializeField] private TMP_Text dialogueText;      // Dialogue content text
-    [SerializeField] private TMP_Text characterNameText; // Character name text
-    [SerializeField] private Image characterArt;         // NPC portrait image
+    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private TMP_Text characterNameText;
+    [SerializeField] private Image characterArtImage;
 
-    [Header("Dialogue Data")]
-    [TextArea(2, 5)]
-    [SerializeField] private string[] dialogueLines;     // Lines of dialogue
-    [SerializeField] private Sprite npcSprite;           // Character art sprite
-    [SerializeField] private string npcName = "NPC";     // Character name
+    [Header("NPC Info")]
+    [SerializeField] private string npcName;
+    [SerializeField] private Sprite npcSprite;
 
-    [Header("Settings")]
-    [SerializeField] private KeyCode interactKey = KeyCode.E; // Interaction key
-    [SerializeField] private float typingSpeed = 0.02f;        // Typewriter effect speed
+    [Header("Dialogue Settings")]
+    [SerializeField, TextArea(2, 5)] private string[] dialogueLines;
 
-    private bool playerInRange = false;
-    private bool isTalking = false;
-    private int currentLineIndex = 0;
-    private Coroutine typingCoroutine;
+    [Header("Conditional NPC Settings")]
+    [SerializeField] private bool requiresOtherNPC = false;
+    [SerializeField] private string requiredNPCName;
+    [SerializeField, TextArea(2, 5)] private string[] conditionalDialogueLines;
+
+    [Header("Interaction Settings")]
+    [SerializeField] private float interactionRange = 2f;
+    [SerializeField] private KeyCode interactKey = KeyCode.E;
+
+    private Transform player;
+    private int dialogueIndex = 0;
+    private string[] activeDialogue;
+    private bool isPlayerInRange = false;
 
     private void Start()
     {
-        dialogueBox.SetActive(false);
-        characterArt.enabled = false;
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        if (dialogueBox != null)
+            dialogueBox.SetActive(false);
+
+        if (characterArtImage != null)
+            characterArtImage.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(interactKey))
+        if (player == null) return;
+
+        float distance = Vector2.Distance(transform.position, player.position);
+        bool inRangeNow = distance <= interactionRange;
+
+        if (inRangeNow && !isPlayerInRange)
         {
-            if (!isTalking)
-            {
-                StartDialogue();
-            }
-            else
-            {
+            isPlayerInRange = true;
+        }
+        else if (!inRangeNow && isPlayerInRange)
+        {
+            isPlayerInRange = false;
+            HideDialogue();
+        }
+
+        if (isPlayerInRange && Input.GetKeyDown(interactKey))
+        {
+            if (dialogueBox.activeSelf)
                 NextLine();
-            }
+            else
+                StartDialogue();
         }
     }
 
     private void StartDialogue()
     {
-        isTalking = true;
-        currentLineIndex = 0;
+        if (requiresOtherNPC && !GameManager.Instance.HasTalkedTo(requiredNPCName))
+        {
+            activeDialogue = conditionalDialogueLines;
+            Debug.Log($"{npcName} showing conditional dialogue (needs {requiredNPCName})");
+        }
+        else
+        {
+            activeDialogue = dialogueLines;
+            Debug.Log($"{npcName} showing main dialogue");
+        }
 
+        if (activeDialogue == null || activeDialogue.Length == 0)
+        {
+            Debug.LogWarning($"{npcName} has no dialogue lines to display!");
+            dialogueText.text = "...";
+            return;
+        }
+
+        dialogueIndex = 0;
         dialogueBox.SetActive(true);
-        characterArt.enabled = true;
-        characterArt.sprite = npcSprite;
-        characterNameText.text = npcName; // ✅ Set character name in UI
+        characterNameText.text = npcName;
+        dialogueText.text = activeDialogue[dialogueIndex];
 
-        ShowLine(dialogueLines[currentLineIndex]);
+        if (characterArtImage != null)
+        {
+            characterArtImage.sprite = npcSprite;
+            characterArtImage.gameObject.SetActive(true);
+        }
+
+        if (!requiresOtherNPC || GameManager.Instance.HasTalkedTo(requiredNPCName))
+            GameManager.Instance.MarkNPCAsTalked(npcName);
     }
 
     private void NextLine()
     {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-            dialogueText.text = dialogueLines[currentLineIndex];
-            typingCoroutine = null;
-            return;
-        }
+        dialogueIndex++;
 
-        if (currentLineIndex < dialogueLines.Length - 1)
+        if (activeDialogue == null || dialogueIndex >= activeDialogue.Length)
         {
-            currentLineIndex++;
-            ShowLine(dialogueLines[currentLineIndex]);
+            HideDialogue();
         }
         else
         {
-            EndDialogue();
+            dialogueText.text = activeDialogue[dialogueIndex];
         }
     }
 
-    private void ShowLine(string line)
+    private void HideDialogue()
     {
-        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
-        typingCoroutine = StartCoroutine(TypeLine(line));
-    }
-
-    private IEnumerator TypeLine(string line)
-    {
-        dialogueText.text = "";
-        foreach (char c in line)
-        {
-            dialogueText.text += c;
-            yield return new WaitForSeconds(typingSpeed);
-        }
-        typingCoroutine = null;
-    }
-
-    private void EndDialogue()
-    {
-        isTalking = false;
         dialogueBox.SetActive(false);
-        characterArt.enabled = false;
+        if (characterArtImage != null)
+            characterArtImage.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnDrawGizmosSelected()
     {
-        if (collision.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    // ✅ Updated version to match ExitAreaCondition
+    public void ForceConditionalDialogue(Action onDialogueEnd = null)
     {
-        if (collision.CompareTag("Player"))
+        if (conditionalDialogueLines == null || conditionalDialogueLines.Length == 0)
         {
-            playerInRange = false;
-            EndDialogue();
+            Debug.LogWarning($"{npcName} has no conditional dialogue lines set!");
+            onDialogueEnd?.Invoke();
+            return;
         }
+
+        StartCoroutine(ForceDialogueRoutine(onDialogueEnd));
+    }
+
+    private IEnumerator ForceDialogueRoutine(Action onDialogueEnd)
+    {
+        activeDialogue = conditionalDialogueLines;
+        dialogueIndex = 0;
+
+        dialogueBox.SetActive(true);
+        characterNameText.text = npcName;
+        dialogueText.text = activeDialogue[dialogueIndex];
+
+        if (characterArtImage != null)
+        {
+            characterArtImage.sprite = npcSprite;
+            characterArtImage.gameObject.SetActive(true);
+        }
+
+        Debug.Log($"{npcName} forced to show conditional dialogue.");
+
+        while (dialogueIndex < activeDialogue.Length)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                dialogueIndex++;
+                if (dialogueIndex < activeDialogue.Length)
+                {
+                    dialogueText.text = activeDialogue[dialogueIndex];
+                }
+                else
+                {
+                    HideDialogue();
+                    break;
+                }
+            }
+            yield return null;
+        }
+
+        onDialogueEnd?.Invoke(); // ✅ Re-enable movement after dialogue ends
     }
 }

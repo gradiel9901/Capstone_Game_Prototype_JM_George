@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,6 @@ public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } }
 
-    
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
@@ -23,8 +22,10 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool facingLeft = false;
     private bool isDashing = false;
+    private bool canMove = true; // ✅ Added movement toggle
 
     AudioManager audioManager;
+
     protected override void Awake()
     {
         base.Awake();
@@ -39,7 +40,6 @@ public class PlayerController : Singleton<PlayerController>
     private void Start()
     {
         playerControls.Combat.Dash.performed += _ => Dash();
-
         startingMoveSpeed = moveSpeed;
 
         ActiveInventory.Instance.EquipStartingWeapon();
@@ -57,11 +57,25 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Update()
     {
+        if (!canMove) // ✅ Prevents movement input when disabled
+        {
+            movement = Vector2.zero;
+            myAnimator.SetFloat("moveX", 0);
+            myAnimator.SetFloat("moveY", 0);
+            return;
+        }
+
         PlayerInput();
     }
 
     private void FixedUpdate()
     {
+        if (!canMove)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         AdjustPlayerFacingDirection();
         Move();
     }
@@ -74,7 +88,6 @@ public class PlayerController : Singleton<PlayerController>
     private void PlayerInput()
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
-
         myAnimator.SetFloat("moveX", movement.x);
         myAnimator.SetFloat("moveY", movement.y);
     }
@@ -105,9 +118,9 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Dash()
     {
+        if (!canMove || isDashing) return; // ✅ No dash while disabled
 
-
-        if (!isDashing && Stamina.Instance.CurrentStamina > 0)
+        if (Stamina.Instance.CurrentStamina > 0)
         {
             audioManager.PlaySFX(audioManager.dash);
             Stamina.Instance.UseStamina();
@@ -127,5 +140,17 @@ public class PlayerController : Singleton<PlayerController>
         myTrailRenderer.emitting = false;
         yield return new WaitForSeconds(dashCD);
         isDashing = false;
+    }
+
+    // ✅ Movement control for ExitAreaCondition and dialogue system
+    public void DisableMovement()
+    {
+        canMove = false;
+        rb.velocity = Vector2.zero;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
     }
 }
