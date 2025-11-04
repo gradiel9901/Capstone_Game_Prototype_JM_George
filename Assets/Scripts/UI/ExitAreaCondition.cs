@@ -3,52 +3,41 @@
 public class ExitAreaCondition : MonoBehaviour
 {
     [Header("Required NPCs to Proceed")]
-    [SerializeField] private string requiredNPC1 = "Warrior";
-    [SerializeField] private string requiredNPC2 = "Elf";
+    [SerializeField] private NPCInteraction elfNPC;
+    [SerializeField] private NPCInteraction warriorNPC;
 
-    [Header("Optional Reference to Conditional NPC")]
-    [SerializeField] private NPCInteraction conditionalNPC; // NPC that warns the player
+    [Header("Barrier Collider")]
+    [SerializeField] private Collider2D barrierCollider;
 
-    private PlayerController playerInput; // Reference to player movement script
+    private bool conditionMet = false;
 
     private void Start()
     {
-        // Automatically find the player controller in the scene
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-            playerInput = player.GetComponent<PlayerController>(); // Make sure this matches your movement script
+        if (barrierCollider == null)
+            barrierCollider = GetComponent<Collider2D>();
+
+        if (barrierCollider != null)
+            barrierCollider.enabled = true; // Default: block player
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        if (!other.CompareTag("Player")) return;
+        if (conditionMet || barrierCollider == null)
+            return;
 
-        bool talkedToNPC1 = GameManager.Instance.HasTalkedTo(requiredNPC1);
-        bool talkedToNPC2 = GameManager.Instance.HasTalkedTo(requiredNPC2);
+        // Make sure both NPC references are valid
+        if (elfNPC == null || warriorNPC == null) return;
 
-        if (talkedToNPC1 && talkedToNPC2)
+        bool talkedToElf = GameManager.Instance.HasTalkedTo(elfNPC.name);
+        bool talkedToWarrior = GameManager.Instance.HasTalkedTo(warriorNPC.name);
+        bool warriorQuestDone = warriorNPC.IsQuestCompleted;
+
+        // ✅ All conditions must be true
+        if (talkedToElf && talkedToWarrior && warriorQuestDone)
         {
-            Debug.Log("✅ Player has talked to all required NPCs. Gate deactivated.");
-            gameObject.SetActive(false); // Allow passage
-        }
-        else
-        {
-            Debug.Log("❌ Player hasn't talked to all required NPCs yet!");
-
-            // Stop player movement
-            if (playerInput != null)
-                playerInput.DisableMovement();
-
-            // Trigger conditional dialogue
-            if (conditionalNPC != null)
-            {
-                conditionalNPC.ForceConditionalDialogue(() =>
-                {
-                    // Re-enable player movement once dialogue is finished
-                    if (playerInput != null)
-                        playerInput.EnableMovement();
-                });
-            }
+            Debug.Log("[ExitAreaCondition] All conditions met. Disabling barrier collider.");
+            barrierCollider.enabled = false;
+            conditionMet = true;
         }
     }
 }

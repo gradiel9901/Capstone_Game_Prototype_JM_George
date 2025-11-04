@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DamageSource : MonoBehaviour
 {
@@ -8,13 +6,26 @@ public class DamageSource : MonoBehaviour
 
     private void Start()
     {
-        MonoBehaviour currenActiveWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
-        damageAmount = (currenActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
+        MonoBehaviour currentActiveWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
+        damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-        enemyHealth?.TakeDamage(damageAmount);
+        // 🔹 1. Handle Enemies
+        EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+        if (enemyHealth != null)
+        {
+            enemyHealth.TakeDamage(damageAmount);
+            return;
+        }
+
+        // 🔹 2. Handle Training Dummy
+        DummyTarget dummy = other.GetComponent<DummyTarget>();
+        if (dummy != null)
+        {
+            dummy.TakeDamage(damageAmount);
+            return;
+        }
     }
 }
