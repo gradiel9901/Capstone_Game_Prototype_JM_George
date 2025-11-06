@@ -6,7 +6,6 @@ public class Sword : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimSpawnPoint;
-    //[SerializeField] private float swordAttackCD = .5f;
     [SerializeField] private WeaponInfo weaponInfo;
 
     private Transform weaponCollider;
@@ -27,7 +26,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     private void Update()
     {
-        MouseFollowWithOffset();
+        FacePlayerDirection();
     }
 
     public WeaponInfo GetWeaponInfo()
@@ -47,7 +46,6 @@ public class Sword : MonoBehaviour, IWeapon
     {
         weaponCollider.gameObject.SetActive(false);
     }
-
 
     public void SwingUpFlipAnimEvent()
     {
@@ -69,21 +67,21 @@ public class Sword : MonoBehaviour, IWeapon
         }
     }
 
-    private void MouseFollowWithOffset()
+    /// <summary>
+    /// Makes the weapon face wherever the player is currently facing.
+    /// </summary>
+    private void FacePlayerDirection()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
-
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-
-        if (mousePos.x < playerScreenPoint.x)
+        if (PlayerController.Instance.FacingLeft)
         {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
+            // Face left
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, 0);
             weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
+            // Face right
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
             weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }

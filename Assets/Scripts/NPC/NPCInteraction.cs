@@ -1,14 +1,9 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
-public enum QuestType
-{
-    None,
-    EnemyExtermination,
-    TalkToNPC,
-    RequirementQuest
-}
+public enum QuestType { None, EnemyExtermination, TalkToNPC, RequirementQuest }
 
 [System.Serializable]
 public class QuestData
@@ -16,7 +11,6 @@ public class QuestData
     [Header("Quest Info")]
     public string questTitle;
     [TextArea(2, 4)] public string questDescription;
-
     public QuestType questType = QuestType.None;
     public string targetNPCName;
     public int requiredKills;
@@ -27,8 +21,8 @@ public class QuestData
     [TextArea(2, 5)] public string[] completeDialogue;
 
     [Header("Quest Triggers")]
-    public GameObject[] objectsToActivate;   // e.g. portals, next stage
-    public GameObject[] objectsToDeactivate; // e.g. barriers
+    public GameObject[] objectsToActivate;
+    public GameObject[] objectsToDeactivate;
 }
 
 public class NPCInteraction : MonoBehaviour
@@ -57,7 +51,6 @@ public class NPCInteraction : MonoBehaviour
 
     [Header("Interaction Settings")]
     [SerializeField] private float interactionRange = 2f;
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
 
     [Header("Quest Chain Settings")]
     [SerializeField] private bool isQuestGiver = false;
@@ -68,12 +61,15 @@ public class NPCInteraction : MonoBehaviour
     private int currentDamage = 0;
     private bool questActive = false;
     private bool questCompleted = false;
-
     private Transform player;
     private PlayerController playerController;
     private int dialogueIndex = 0;
     private string[] activeDialogue;
     private bool isPlayerInRange = false;
+
+    // ✅ Input System
+    private PlayerControls controls;
+    private InputAction interactAction;
 
     // ✅ Public accessors
     public bool IsDialogueActive => dialogueBox != null && dialogueBox.activeSelf;
@@ -84,19 +80,32 @@ public class NPCInteraction : MonoBehaviour
         ? quests[currentQuestIndex].questType
         : QuestType.None;
 
+    private void Awake()
+    {
+        // Initialize Input System
+        controls = new PlayerControls();
+        interactAction = controls.Interaction.NPCInteractionButton; // make sure you have an "Interact" action in your Input Actions map
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+        interactAction.performed += OnInteract;
+    }
+
+    private void OnDisable()
+    {
+        interactAction.performed -= OnInteract;
+        controls.Disable();
+    }
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (player != null) playerController = player.GetComponent<PlayerController>();
 
-        if (player != null)
-            playerController = player.GetComponent<PlayerController>();
-
-        if (dialogueBox != null)
-            dialogueBox.SetActive(false);
-
-        if (characterArtImage != null)
-            characterArtImage.gameObject.SetActive(false);
-
+        if (dialogueBox != null) dialogueBox.SetActive(false);
+        if (characterArtImage != null) characterArtImage.gameObject.SetActive(false);
         if (questTitleText != null) questTitleText.text = "";
         if (questDescriptionText != null) questDescriptionText.text = "";
 
@@ -125,16 +134,18 @@ public class NPCInteraction : MonoBehaviour
             HideDialogue();
         }
 
-        if (isPlayerInRange && Input.GetKeyDown(interactKey))
-        {
-            if (dialogueBox.activeSelf)
-                NextLine();
-            else
-                StartDialogue();
-        }
-
         if (questActive)
             UpdateQuestUI();
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        if (!isPlayerInRange) return;
+
+        if (dialogueBox.activeSelf)
+            NextLine();
+        else
+            StartDialogue();
     }
 
     private void StartDialogue()
@@ -187,32 +198,24 @@ public class NPCInteraction : MonoBehaviour
     private void HideDialogue()
     {
         dialogueBox.SetActive(false);
-        if (characterArtImage != null)
-            characterArtImage.gameObject.SetActive(false);
-
-        if (playerController != null)
-            playerController.EnableMovement();
+        if (characterArtImage != null) characterArtImage.gameObject.SetActive(false);
+        if (playerController != null) playerController.EnableMovement();
     }
 
-    // ✅ Start a quest or next in chain
     private void StartQuest()
     {
         if (!isQuestGiver || quests == null || quests.Length == 0) return;
         if (currentQuestIndex >= quests.Length) return;
 
         QuestData currentQuest = quests[currentQuestIndex];
-
         questActive = true;
         questCompleted = false;
 
-        // ✅ Show quest title and initial description immediately
         if (questTitleText != null)
             questTitleText.text = $"Quest: {currentQuest.questTitle}";
-
         if (questDescriptionText != null)
             questDescriptionText.text = currentQuest.questDescription;
 
-        // ✅ Start quest dialogue if provided
         if (currentQuest.startDialogue != null && currentQuest.startDialogue.Length > 0)
         {
             activeDialogue = currentQuest.startDialogue;
@@ -229,15 +232,15 @@ public class NPCInteraction : MonoBehaviour
         if (!questActive || questCompleted || currentQuestIndex >= quests.Length) return;
 
         QuestData currentQuest = quests[currentQuestIndex];
-
-        string baseDesc = currentQuest.questDescription; // ✅ Keep base description text visible
+        string baseDesc = currentQuest.questDescription;
 
         switch (currentQuest.questType)
         {
             case QuestType.EnemyExtermination:
                 if (questDescriptionText != null)
                     questDescriptionText.text = $"{baseDesc}\n\nDefeat {currentQuest.requiredKills} enemies. ({currentKills}/{currentQuest.requiredKills})";
-                if (currentKills >= currentQuest.requiredKills) CompleteQuest();
+                if (currentKills >= currentQuest.requiredKills)
+                    CompleteQuest();
                 break;
 
             case QuestType.TalkToNPC:
@@ -255,7 +258,6 @@ public class NPCInteraction : MonoBehaviour
                 break;
         }
     }
-
 
     public void RegisterEnemyKill()
     {
@@ -278,20 +280,17 @@ public class NPCInteraction : MonoBehaviour
     private void CompleteQuest()
     {
         if (currentQuestIndex >= quests.Length) return;
-        QuestData currentQuest = quests[currentQuestIndex];
 
+        QuestData currentQuest = quests[currentQuestIndex];
         questCompleted = true;
         questActive = false;
 
-        // ✅ Update description to show completion before hiding
         if (questDescriptionText != null)
             questDescriptionText.text = $"{currentQuest.questDescription}\n\n✅ Quest Completed!";
 
         Debug.Log($"{npcName}: Quest completed!");
-
         GameManager.Instance.MarkQuestCompleted(npcName);
 
-        // ✅ Show completion dialogue if any
         if (currentQuest.completeDialogue != null && currentQuest.completeDialogue.Length > 0)
         {
             activeDialogue = currentQuest.completeDialogue;
@@ -300,41 +299,27 @@ public class NPCInteraction : MonoBehaviour
             dialogueText.text = activeDialogue[dialogueIndex];
         }
 
-        // ✅ Handle trigger objects
         foreach (var obj in currentQuest.objectsToDeactivate)
             if (obj != null) obj.SetActive(false);
 
         foreach (var obj in currentQuest.objectsToActivate)
             if (obj != null) obj.SetActive(true);
 
-        // ✅ Move to the next quest in the chain
         currentQuestIndex++;
 
-        // ✅ If there’s another quest, start it
         if (currentQuestIndex < quests.Length)
-        {
             StartQuest();
-        }
         else
-        {
-            // ✅ If no more quests, clear quest UI after a short delay
             StartCoroutine(ClearQuestUIAfterDelay(2f));
-        }
     }
 
     private System.Collections.IEnumerator ClearQuestUIAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        if (questTitleText != null)
-            questTitleText.text = "";
-
-        if (questDescriptionText != null)
-            questDescriptionText.text = "";
+        if (questTitleText != null) questTitleText.text = "";
+        if (questDescriptionText != null) questDescriptionText.text = "";
     }
 
-
-    // ✅ Called by GameManager when previous quest in chain is completed
     public void StartNextQuestInChain()
     {
         if (isQuestGiver && currentQuestIndex < quests.Length && !questActive)
@@ -347,13 +332,11 @@ public class NPCInteraction : MonoBehaviour
         {
             activeDialogue = conditionalDialogueLines;
             dialogueIndex = 0;
-
             dialogueBox.SetActive(true);
             characterArtImage.sprite = npcSprite;
             characterArtImage.gameObject.SetActive(true);
             characterNameText.text = npcName;
             dialogueText.text = activeDialogue[dialogueIndex];
-
             Debug.Log($"{npcName} forced to show conditional dialogue.");
             onComplete?.Invoke();
         }

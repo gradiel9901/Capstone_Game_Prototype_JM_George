@@ -827,7 +827,6 @@ MonoBehaviour:
   - You can't go beyond this point. talk to the Warrior Chief and ask him for permission
     and come back and talk to me again.
   interactionRange: 2
-  interactKey: 101
   isQuestGiver: 1
   quests:
   - questTitle: Permission to Pass
@@ -36465,7 +36464,6 @@ MonoBehaviour:
   requiredNPCName: 
   conditionalDialogueLines: []
   interactionRange: 2
-  interactKey: 101
   isQuestGiver: 1
   quests:
   - questTitle: Resolve

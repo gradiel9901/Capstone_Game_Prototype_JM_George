@@ -22,7 +22,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool facingLeft = false;
     private bool isDashing = false;
-    private bool canMove = true; // ✅ Added movement toggle
+    private bool canMove = true; // ✅ Movement toggle
 
     AudioManager audioManager;
 
@@ -57,7 +57,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Update()
     {
-        if (!canMove) // ✅ Prevents movement input when disabled
+        if (!canMove)
         {
             movement = Vector2.zero;
             myAnimator.SetFloat("moveX", 0);
@@ -76,7 +76,7 @@ public class PlayerController : Singleton<PlayerController>
             return;
         }
 
-        AdjustPlayerFacingDirection();
+        AdjustPlayerFacingDirection(); // 🧭 Updated logic
         Move();
     }
 
@@ -99,17 +99,15 @@ public class PlayerController : Singleton<PlayerController>
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
+    // 🎮 Updated to face using keyboard/controller input only
     private void AdjustPlayerFacingDirection()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
-
-        if (mousePos.x < playerScreenPoint.x)
+        if (movement.x < 0)
         {
             mySpriteRender.flipX = true;
             facingLeft = true;
         }
-        else
+        else if (movement.x > 0)
         {
             mySpriteRender.flipX = false;
             facingLeft = false;
@@ -118,7 +116,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Dash()
     {
-        if (!canMove || isDashing) return; // ✅ No dash while disabled
+        if (!canMove || isDashing) return;
 
         if (Stamina.Instance.CurrentStamina > 0)
         {
@@ -142,7 +140,6 @@ public class PlayerController : Singleton<PlayerController>
         isDashing = false;
     }
 
-    // ✅ Movement control for ExitAreaCondition and dialogue system
     public void DisableMovement()
     {
         canMove = false;
