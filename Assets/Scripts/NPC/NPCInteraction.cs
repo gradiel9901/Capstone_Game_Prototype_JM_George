@@ -82,27 +82,50 @@ public class NPCInteraction : MonoBehaviour
 
     private void Awake()
     {
-        // Initialize Input System
-        controls = new PlayerControls();
-        interactAction = controls.Interaction.NPCInteractionButton; // make sure you have an "Interact" action in your Input Actions map
+        if (controls == null)
+            controls = new PlayerControls();
     }
 
     private void OnEnable()
     {
+        if (controls == null)
+            controls = new PlayerControls();
+
         controls.Enable();
+
+        // ✅ Safe subscribe
+        if (interactAction == null)
+            interactAction = controls.Interaction.NPCInteractionButton;
+
+        interactAction.performed -= OnInteract; // avoid duplicates
         interactAction.performed += OnInteract;
     }
 
     private void OnDisable()
     {
-        interactAction.performed -= OnInteract;
-        controls.Disable();
+        // ✅ Safe unsubscribe
+        if (interactAction != null)
+            interactAction.performed -= OnInteract;
+
+        if (controls != null)
+            controls.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        // ✅ Double-safe unsubscribe for scene unloads
+        if (interactAction != null)
+            interactAction.performed -= OnInteract;
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.UnregisterQuestGiver(this);
     }
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (player != null) playerController = player.GetComponent<PlayerController>();
+        if (player != null)
+            playerController = player.GetComponent<PlayerController>();
 
         if (dialogueBox != null) dialogueBox.SetActive(false);
         if (characterArtImage != null) characterArtImage.gameObject.SetActive(false);
@@ -111,12 +134,6 @@ public class NPCInteraction : MonoBehaviour
 
         if (GameManager.Instance != null)
             GameManager.Instance.RegisterQuestGiver(this);
-    }
-
-    private void OnDestroy()
-    {
-        if (GameManager.Instance != null)
-            GameManager.Instance.UnregisterQuestGiver(this);
     }
 
     private void Update()
@@ -140,7 +157,12 @@ public class NPCInteraction : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
-        if (!isPlayerInRange) return;
+        // ✅ Prevent access to destroyed NPCs or missing objects
+        if (this == null || gameObject == null)
+            return;
+
+        if (!isPlayerInRange || dialogueBox == null)
+            return;
 
         if (dialogueBox.activeSelf)
             NextLine();

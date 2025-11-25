@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 4025654750286735780}
   - component: {fileID: 2501737539248655806}
   - component: {fileID: 4022568116834891155}
+  - component: {fileID: 4526312425096974001}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -391,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69745a7cfa6119b46aa14a8db63c112b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 5
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
   currentHealth: 0
@@ -437,6 +438,26 @@ MonoBehaviour:
   fullStaminaImage: {fileID: 21300000, guid: e4a515078c09bbb45972d3dc636e22b4, type: 3}
   emptyStaminaImage: {fileID: 21300000, guid: fb143355cbb9d5e46a796e8ed94aa784, type: 3}
   timeBetweenStaminaRefresh: 3
+--- !u!114 &4526312425096974001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284065888891617740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62af367a7d446847b50df4aa2fd8cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  aiAction: {fileID: 0}
+  followSpeed: 3
+  stopDistance: 2
+  attackRange: 1.2
+  targetTags:
+  - Enemy
+  - Dummy
 --- !u!1 &6653384823189322073
 GameObject:
   m_ObjectHideFlags: 0

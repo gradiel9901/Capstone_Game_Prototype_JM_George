@@ -139,7 +139,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.0
+  bundleVersion: 1.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -776,11 +776,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 74d0a717-d8a5-4e4b-9be9-034118dbcf10
+  cloudProjectId: 3ec38209-e36e-4a3e-af2a-edb150ed6fb4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 2DTopDown
-  organizationId: gradiel9901
+  projectName: Capstone_Prototype
+  organizationId: johnbautista18
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
