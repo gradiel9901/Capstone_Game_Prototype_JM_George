@@ -2,32 +2,11 @@
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-
-public enum QuestType { None, EnemyExtermination, TalkToNPC, RequirementQuest }
-
-[System.Serializable]
-public class QuestData
-{
-    [Header("Quest Info")]
-    public string questTitle;
-    [TextArea(2, 4)] public string questDescription;
-    public QuestType questType = QuestType.None;
-    public string targetNPCName;
-    public int requiredKills;
-    public int requiredDamage;
-
-    [Header("Quest Dialogue")]
-    [TextArea(2, 5)] public string[] startDialogue;
-    [TextArea(2, 5)] public string[] completeDialogue;
-
-    [Header("Quest Triggers")]
-    public GameObject[] objectsToActivate;
-    public GameObject[] objectsToDeactivate;
-}
+using System.Collections;
 
 public class NPCInteraction : MonoBehaviour
 {
-    [Header("UI References")]
+    [Header("UI References (Auto-Filled)")]
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private TMP_Text characterNameText;
@@ -42,6 +21,8 @@ public class NPCInteraction : MonoBehaviour
     [SerializeField] private Sprite npcSprite;
 
     [Header("Dialogue Settings")]
+    [Tooltip("How long (in seconds) each line of the 'Complete Dialogue' stays on screen.")]
+    [SerializeField] private float completionTextDuration = 4f;
     [SerializeField, TextArea(2, 5)] private string[] dialogueLines;
 
     [Header("Conditional NPC Settings")]
@@ -67,73 +48,101 @@ public class NPCInteraction : MonoBehaviour
     private string[] activeDialogue;
     private bool isPlayerInRange = false;
 
-    // ✅ Input System
+    // Choice system variables
+    private bool waitingForChoice = false;
+    private QuestChoice[] currentChoices;
+    private bool isReadingResult = false;
+    private int pendingQuestStart = -1;
+
     private PlayerControls controls;
     private InputAction interactAction;
 
-    // ✅ Public accessors
     public bool IsDialogueActive => dialogueBox != null && dialogueBox.activeSelf;
     public bool IsQuestCompleted => questCompleted;
     public bool HasActiveQuest => questActive;
     public string NPCName => npcName;
-    public QuestType QuestType => (quests != null && quests.Length > 0 && currentQuestIndex < quests.Length)
+
+    public QuestType CurrentQuestType => (quests != null && quests.Length > 0 && currentQuestIndex < quests.Length)
         ? quests[currentQuestIndex].questType
         : QuestType.None;
 
     private void Awake()
     {
-        if (controls == null)
-            controls = new PlayerControls();
+        if (controls == null) controls = new PlayerControls();
     }
 
     private void OnEnable()
     {
-        if (controls == null)
-            controls = new PlayerControls();
-
+        if (controls == null) controls = new PlayerControls();
         controls.Enable();
-
-        // ✅ Safe subscribe
-        if (interactAction == null)
-            interactAction = controls.Interaction.NPCInteractionButton;
-
-        interactAction.performed -= OnInteract; // avoid duplicates
+        if (interactAction == null) interactAction = controls.Interaction.NPCInteractionButton;
+        interactAction.performed -= OnInteract;
         interactAction.performed += OnInteract;
     }
 
     private void OnDisable()
     {
-        // ✅ Safe unsubscribe
-        if (interactAction != null)
-            interactAction.performed -= OnInteract;
-
-        if (controls != null)
-            controls.Disable();
+        if (interactAction != null) interactAction.performed -= OnInteract;
+        if (controls != null) controls.Disable();
     }
 
+    // --- SAFETY CLEANUP ---
     private void OnDestroy()
     {
-        // ✅ Double-safe unsubscribe for scene unloads
-        if (interactAction != null)
-            interactAction.performed -= OnInteract;
+        if (interactAction != null) interactAction.performed -= OnInteract;
+        if (GameManager.Instance != null) GameManager.Instance.UnregisterQuestGiver(this);
 
-        if (GameManager.Instance != null)
-            GameManager.Instance.UnregisterQuestGiver(this);
+        // ✅ IMPORTANT: Force unpause game when destroyed/scene change
+        Time.timeScale = 1f;
+
+        if (playerController != null) playerController.EnableMovement();
+        if (questTitleText != null) questTitleText.text = "";
+        if (questDescriptionText != null) questDescriptionText.text = "";
+        if (dialogueBox != null) dialogueBox.SetActive(false);
     }
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (player != null)
-            playerController = player.GetComponent<PlayerController>();
+        if (player != null) playerController = player.GetComponent<PlayerController>();
 
+        // 1. Try QuestManager first
+        if (QuestManager.Instance != null && QuestManager.Instance.dialogueBox != null)
+        {
+            dialogueBox = QuestManager.Instance.dialogueBox;
+            dialogueText = QuestManager.Instance.dialogueText;
+            characterNameText = QuestManager.Instance.characterNameText;
+            characterArtImage = QuestManager.Instance.characterArtImage;
+            questTitleText = QuestManager.Instance.questTitleText;
+            questDescriptionText = QuestManager.Instance.questDescriptionText;
+        }
+        else
+        {
+            // 2. Failsafe: Nuclear Search
+            GameObject canvas = GameObject.Find("UICanvas");
+            if (canvas != null)
+            {
+                Transform[] allChildren = canvas.GetComponentsInChildren<Transform>(true);
+                foreach (Transform t in allChildren)
+                {
+                    if (t.name == "DialogueBox") dialogueBox = t.gameObject;
+                    if (t.name == "DialogueText") dialogueText = t.GetComponent<TMP_Text>();
+                    if (t.name == "CharacterNameText") characterNameText = t.GetComponent<TMP_Text>();
+                    if (t.name == "CharacterArtImage") characterArtImage = t.GetComponent<Image>();
+
+                    if (t.name == "QuestTitleText") questTitleText = t.GetComponent<TMP_Text>();
+                    if (t.name == "QuestDescriptionText") questDescriptionText = t.GetComponent<TMP_Text>();
+                }
+            }
+        }
+
+        // Initial Reset
         if (dialogueBox != null) dialogueBox.SetActive(false);
         if (characterArtImage != null) characterArtImage.gameObject.SetActive(false);
         if (questTitleText != null) questTitleText.text = "";
         if (questDescriptionText != null) questDescriptionText.text = "";
 
-        if (GameManager.Instance != null)
-            GameManager.Instance.RegisterQuestGiver(this);
+        if (GameManager.Instance != null) GameManager.Instance.RegisterQuestGiver(this);
     }
 
     private void Update()
@@ -151,18 +160,40 @@ public class NPCInteraction : MonoBehaviour
             HideDialogue();
         }
 
+        if (waitingForChoice)
+        {
+            HandleChoiceInput();
+            return;
+        }
+
         if (questActive)
             UpdateQuestUI();
     }
 
+    private void HandleChoiceInput()
+    {
+        int selected = -1;
+        if (Keyboard.current != null)
+        {
+            if (Keyboard.current.zKey.wasPressedThisFrame) selected = 0;
+            if (Keyboard.current.xKey.wasPressedThisFrame) selected = 1;
+            if (Keyboard.current.cKey.wasPressedThisFrame) selected = 2;
+            if (Keyboard.current.vKey.wasPressedThisFrame) selected = 3;
+            if (Keyboard.current.bKey.wasPressedThisFrame) selected = 4;
+            if (Keyboard.current.nKey.wasPressedThisFrame) selected = 5;
+            if (Keyboard.current.mKey.wasPressedThisFrame) selected = 6;
+        }
+
+        if (selected >= 0 && currentChoices != null && selected < currentChoices.Length)
+        {
+            ApplyChoice(selected);
+        }
+    }
+
     private void OnInteract(InputAction.CallbackContext context)
     {
-        // ✅ Prevent access to destroyed NPCs or missing objects
-        if (this == null || gameObject == null)
-            return;
-
-        if (!isPlayerInRange || dialogueBox == null)
-            return;
+        if (this == null || gameObject == null) return;
+        if (!isPlayerInRange || dialogueBox == null) return;
 
         if (dialogueBox.activeSelf)
             NextLine();
@@ -172,8 +203,10 @@ public class NPCInteraction : MonoBehaviour
 
     private void StartDialogue()
     {
-        if (playerController != null)
-            playerController.DisableMovement();
+        if (playerController != null) playerController.DisableMovement();
+
+        // ✅ PAUSE GAME
+        Time.timeScale = 0f;
 
         bool requiredTalked = GameManager.Instance.HasTalkedTo(requiredNPCName);
         bool requiredQuestCompleted = GameManager.Instance.IsQuestCompletedFrom(requiredNPCName);
@@ -183,45 +216,141 @@ public class NPCInteraction : MonoBehaviour
         else
             activeDialogue = dialogueLines;
 
+        isReadingResult = false;
+        pendingQuestStart = -1;
+
         if (activeDialogue == null || activeDialogue.Length == 0)
         {
-            dialogueText.text = "...";
+            if (dialogueText != null) dialogueText.text = "...";
             return;
         }
 
         dialogueIndex = 0;
-        dialogueBox.SetActive(true);
-        characterNameText.text = npcName;
-        dialogueText.text = activeDialogue[dialogueIndex];
+        SetupDialogueUI();
+        if (dialogueText != null) dialogueText.text = activeDialogue[dialogueIndex];
 
+        if (!requiresOtherNPC || GameManager.Instance.HasTalkedTo(requiredNPCName))
+            GameManager.Instance.MarkNPCAsTalked(npcName);
+    }
+
+    private void SetupDialogueUI()
+    {
+        if (dialogueBox != null) dialogueBox.SetActive(true);
+        if (characterNameText != null) characterNameText.text = npcName;
         if (characterArtImage != null)
         {
             characterArtImage.sprite = npcSprite;
             characterArtImage.gameObject.SetActive(true);
         }
-
-        if (!requiresOtherNPC || GameManager.Instance.HasTalkedTo(requiredNPCName))
-            GameManager.Instance.MarkNPCAsTalked(npcName);
-
-        if (isQuestGiver && !questActive && !questCompleted)
-            StartQuest();
     }
 
     private void NextLine()
     {
+        if (waitingForChoice) return;
+
         dialogueIndex++;
 
         if (activeDialogue == null || dialogueIndex >= activeDialogue.Length)
+        {
+            if (isReadingResult)
+            {
+                if (pendingQuestStart != -1)
+                {
+                    currentQuestIndex = pendingQuestStart;
+                    StartQuest();
+                    pendingQuestStart = -1;
+                    isReadingResult = false;
+                }
+                else
+                    HideDialogue();
+                return;
+            }
+
+            if (isQuestGiver && !questActive && !questCompleted && currentQuestIndex < quests.Length)
+            {
+                QuestData q = quests[currentQuestIndex];
+                if (q.offersChoices)
+                    MaybeShowQuestChoices();
+                else
+                    StartQuest();
+                return;
+            }
+
             HideDialogue();
+        }
         else
+        {
+            if (dialogueText != null) dialogueText.text = activeDialogue[dialogueIndex];
+        }
+    }
+
+    private void MaybeShowQuestChoices()
+    {
+        if (isQuestGiver && currentQuestIndex < quests.Length)
+        {
+            QuestData q = quests[currentQuestIndex];
+            if (q.offersChoices && q.choices != null && q.choices.Length > 0)
+            {
+                ShowChoicesInDialogue(q.choices);
+                return;
+            }
+        }
+        HideDialogue();
+    }
+
+    private void ShowChoicesInDialogue(QuestChoice[] choices)
+    {
+        waitingForChoice = true;
+        currentChoices = choices;
+        string output = "Choose:\n\n";
+        string[] keys = { "[Z]", "[X]", "[C]", "[V]", "[B]", "[N]", "[M]" };
+
+        int count = Mathf.Min(choices.Length, keys.Length);
+        for (int i = 0; i < count; i++)
+            output += $"{keys[i]} {choices[i].buttonLabel}\n";
+
+        if (choices.Length > keys.Length)
+            for (int i = keys.Length; i < choices.Length; i++)
+                output += $"[?] {choices[i].buttonLabel}\n";
+
+        if (dialogueText != null) dialogueText.text = output;
+        if (playerController != null) playerController.DisableMovement();
+    }
+
+    private void ApplyChoice(int index)
+    {
+        waitingForChoice = false;
+
+        if (currentChoices == null || index < 0 || index >= currentChoices.Length)
+            return;
+
+        var chosen = currentChoices[index];
+        activeDialogue = chosen.resultDialogue ?? new string[] { "..." };
+
+        if (chosen.triggersQuest)
+            pendingQuestStart = chosen.questIndexToTrigger;
+        else
+            pendingQuestStart = -1;
+
+        isReadingResult = true;
+        dialogueIndex = 0;
+
+        if (dialogueText != null)
             dialogueText.text = activeDialogue[dialogueIndex];
     }
 
     private void HideDialogue()
     {
-        dialogueBox.SetActive(false);
+        if (dialogueBox != null) dialogueBox.SetActive(false);
         if (characterArtImage != null) characterArtImage.gameObject.SetActive(false);
+        waitingForChoice = false;
+        currentChoices = null;
+        isReadingResult = false;
+        pendingQuestStart = -1;
         if (playerController != null) playerController.EnableMovement();
+
+        // ✅ RESUME GAME
+        Time.timeScale = 1f;
     }
 
     private void StartQuest()
@@ -232,18 +361,32 @@ public class NPCInteraction : MonoBehaviour
         QuestData currentQuest = quests[currentQuestIndex];
         questActive = true;
         questCompleted = false;
+        currentKills = 0;
+        currentDamage = 0;
 
         if (questTitleText != null)
             questTitleText.text = $"Quest: {currentQuest.questTitle}";
         if (questDescriptionText != null)
             questDescriptionText.text = currentQuest.questDescription;
 
+        UpdateQuestUI();
+
         if (currentQuest.startDialogue != null && currentQuest.startDialogue.Length > 0)
         {
             activeDialogue = currentQuest.startDialogue;
             dialogueIndex = 0;
-            dialogueBox.SetActive(true);
-            dialogueText.text = activeDialogue[dialogueIndex];
+            if (dialogueBox != null) dialogueBox.SetActive(true);
+            if (dialogueText != null) dialogueText.text = activeDialogue[dialogueIndex];
+            if (characterNameText != null) characterNameText.text = npcName;
+            if (characterArtImage != null)
+            {
+                characterArtImage.sprite = npcSprite;
+                characterArtImage.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            HideDialogue();
         }
 
         Debug.Log($"{npcName} started quest: {currentQuest.questTitle}");
@@ -299,6 +442,7 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
+    // --- AUTOMATIC COMPLETION DIALOGUE LOGIC ---
     private void CompleteQuest()
     {
         if (currentQuestIndex >= quests.Length) return;
@@ -311,35 +455,74 @@ public class NPCInteraction : MonoBehaviour
             questDescriptionText.text = $"{currentQuest.questDescription}\n\n✅ Quest Completed!";
 
         Debug.Log($"{npcName}: Quest completed!");
-        GameManager.Instance.MarkQuestCompleted(npcName);
+        if (GameManager.Instance != null) GameManager.Instance.MarkQuestCompleted(npcName);
 
-        if (currentQuest.completeDialogue != null && currentQuest.completeDialogue.Length > 0)
+        if (currentQuest.objectsToDeactivate != null)
         {
-            activeDialogue = currentQuest.completeDialogue;
-            dialogueIndex = 0;
-            dialogueBox.SetActive(true);
-            dialogueText.text = activeDialogue[dialogueIndex];
+            foreach (var obj in currentQuest.objectsToDeactivate)
+                if (obj != null) obj.SetActive(false);
         }
 
-        foreach (var obj in currentQuest.objectsToDeactivate)
-            if (obj != null) obj.SetActive(false);
+        if (currentQuest.objectsToActivate != null)
+        {
+            foreach (var obj in currentQuest.objectsToActivate)
+                if (obj != null) obj.SetActive(true);
+        }
 
-        foreach (var obj in currentQuest.objectsToActivate)
-            if (obj != null) obj.SetActive(true);
+        if (playerController != null) playerController.DisableMovement();
 
-        currentQuestIndex++;
+        // ✅ PAUSE GAME DURING VICTORY LAP
+        Time.timeScale = 0f;
 
-        if (currentQuestIndex < quests.Length)
-            StartQuest();
-        else
-            StartCoroutine(ClearQuestUIAfterDelay(2f));
+        StartCoroutine(PlayCompletionSequence(currentQuest));
     }
 
-    private System.Collections.IEnumerator ClearQuestUIAfterDelay(float delay)
+    private IEnumerator PlayCompletionSequence(QuestData quest)
     {
-        yield return new WaitForSeconds(delay);
+        if (quest.completeDialogue != null && quest.completeDialogue.Length > 0)
+        {
+            if (dialogueBox != null) dialogueBox.SetActive(true);
+            if (characterNameText != null) characterNameText.text = npcName;
+            if (characterArtImage != null)
+            {
+                characterArtImage.sprite = npcSprite;
+                characterArtImage.gameObject.SetActive(true);
+            }
+
+            foreach (string line in quest.completeDialogue)
+            {
+                if (dialogueText != null) dialogueText.text = line;
+
+                // ✅ USE REALTIME WAIT (Ignores Time.timeScale = 0)
+                yield return new WaitForSecondsRealtime(completionTextDuration);
+            }
+        }
+        else
+        {
+            // ✅ USE REALTIME WAIT
+            yield return new WaitForSecondsRealtime(2f);
+        }
+
+        // --- SEQUENCE FINISHED ---
         if (questTitleText != null) questTitleText.text = "";
         if (questDescriptionText != null) questDescriptionText.text = "";
+
+        if (dialogueBox != null) dialogueBox.SetActive(false);
+        if (characterArtImage != null) characterArtImage.gameObject.SetActive(false);
+
+        if (playerController != null) playerController.EnableMovement();
+
+        // ✅ RESUME GAME
+        Time.timeScale = 1f;
+
+        if (quest.hasNextQuest)
+        {
+            currentQuestIndex = quest.nextQuestIndex;
+        }
+        else
+        {
+            currentQuestIndex = quests.Length + 99;
+        }
     }
 
     public void StartNextQuestInChain()
@@ -354,12 +537,14 @@ public class NPCInteraction : MonoBehaviour
         {
             activeDialogue = conditionalDialogueLines;
             dialogueIndex = 0;
-            dialogueBox.SetActive(true);
-            characterArtImage.sprite = npcSprite;
-            characterArtImage.gameObject.SetActive(true);
-            characterNameText.text = npcName;
-            dialogueText.text = activeDialogue[dialogueIndex];
-            Debug.Log($"{npcName} forced to show conditional dialogue.");
+            if (dialogueBox != null) dialogueBox.SetActive(true);
+            if (characterArtImage != null)
+            {
+                characterArtImage.sprite = npcSprite;
+                characterArtImage.gameObject.SetActive(true);
+            }
+            if (characterNameText != null) characterNameText.text = npcName;
+            if (dialogueText != null) dialogueText.text = activeDialogue[dialogueIndex];
             onComplete?.Invoke();
         }
     }
