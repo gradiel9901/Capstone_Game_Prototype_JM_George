@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8290809191419465456}
   - component: {fileID: 9094740491943761059}
-  - component: {fileID: 2258606207852551476}
+  - component: {fileID: 3363038335458543325}
   m_Layer: 0
   m_Name: Portal Block
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.175235, y: 7.43239, z: 0.9224762}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.6, y: 5.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8676691, y: 2.323299}
   m_EdgeRadius: 0
---- !u!114 &2258606207852551476
+--- !u!114 &3363038335458543325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,6 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3d05c213eeaf2488606eadab6a1d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elfNPC: {fileID: 0}
-  warriorNPC: {fileID: 0}
+  requiredNPCs:
+  - {fileID: 0}
   barrierCollider: {fileID: 9094740491943761059}

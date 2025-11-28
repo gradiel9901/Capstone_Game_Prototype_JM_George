@@ -197,6 +197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2558378032590079765, guid: be9aa40776f7db74b940a62d3d22ddc5, type: 3}
+      propertyPath: currentGold
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4835351990069378750, guid: be9aa40776f7db74b940a62d3d22ddc5, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -410,9 +414,10 @@ MonoBehaviour:
   completionTextDuration: 4
   dialogueLines:
   - Thank you Traveler!
-  requiresOtherNPC: 0
-  requiredNPCName: 
-  conditionalDialogueLines: []
+  requiresOtherNPC: 1
+  requiredNPCName: Merchant
+  conditionalDialogueLines:
+  - Where is my father? have seen him? please find him first!
   interactionRange: 2
   isQuestGiver: 0
   quests: []
@@ -1623,6 +1628,7 @@ MonoBehaviour:
     targetNPCName: 
     requiredKills: 6
     requiredDamage: 0
+    requiredGold: 0
     offersChoices: 1
     choices:
     - buttonLabel: Wait here ill find her!
@@ -1638,6 +1644,7 @@ MonoBehaviour:
     startDialogue: []
     completeDialogue:
     - You have slain the enemies please Find my daughter
+    notMetDialogue: []
     objectsToActivate: []
     objectsToDeactivate: []
     hasNextQuest: 0
@@ -1648,13 +1655,14 @@ MonoBehaviour:
     targetNPCName: 
     requiredKills: 6
     requiredDamage: 0
+    requiredGold: 0
     offersChoices: 0
     choices: []
     startDialogue: []
     completeDialogue: []
+    notMetDialogue: []
     objectsToActivate: []
-    objectsToDeactivate:
-    - {fileID: 2103018525}
+    objectsToDeactivate: []
     hasNextQuest: 0
     nextQuestIndex: -1
   - questTitle: Dire Situation II
@@ -1663,13 +1671,14 @@ MonoBehaviour:
     targetNPCName: Daughter
     requiredKills: 0
     requiredDamage: 0
+    requiredGold: 0
     offersChoices: 0
     choices: []
     startDialogue: []
     completeDialogue: []
+    notMetDialogue: []
     objectsToActivate: []
-    objectsToDeactivate:
-    - {fileID: 2103018525}
+    objectsToDeactivate: []
     hasNextQuest: 0
     nextQuestIndex: 0
 --- !u!70 &403808890
@@ -54201,16 +54210,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8290809191419465456, guid: e4e22f7cf8c75674c8db45175e02add9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 8290809191419465456, guid: e4e22f7cf8c75674c8db45175e02add9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.51
       objectReference: {fileID: 0}
     - target: {fileID: 8290809191419465456, guid: e4e22f7cf8c75674c8db45175e02add9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.16
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 8290809191419465456, guid: e4e22f7cf8c75674c8db45175e02add9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54253,11 +54258,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e22f7cf8c75674c8db45175e02add9, type: 3}
---- !u!1 &2103018525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8696065745482957214, guid: e4e22f7cf8c75674c8db45175e02add9, type: 3}
-  m_PrefabInstance: {fileID: 2103018524}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2117499797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4824856106128772021, guid: 1f174ade502cc6e42a49f79d5e583c01, type: 3}
@@ -54393,6 +54393,7 @@ MonoBehaviour:
   sceneToLoad:
   - Scene1
   sceneTransitionName: EEntry
+  waitToLoadTime: 1
 --- !u!4 &9102762007363320044
 Transform:
   m_ObjectHideFlags: 0

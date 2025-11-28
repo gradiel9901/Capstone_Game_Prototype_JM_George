@@ -92,7 +92,7 @@ public class NPCInteraction : MonoBehaviour
         if (interactAction != null) interactAction.performed -= OnInteract;
         if (GameManager.Instance != null) GameManager.Instance.UnregisterQuestGiver(this);
 
-        // ✅ IMPORTANT: Force unpause game when destroyed/scene change
+        // Force time back to normal on destroy
         Time.timeScale = 1f;
 
         if (playerController != null) playerController.EnableMovement();
@@ -205,8 +205,8 @@ public class NPCInteraction : MonoBehaviour
     {
         if (playerController != null) playerController.DisableMovement();
 
-        // ✅ PAUSE GAME
-        Time.timeScale = 0f;
+        // ✅ FIX: Use a tiny number instead of 0 to prevent Unity Input System bug
+        Time.timeScale = 0.00001f;
 
         bool requiredTalked = GameManager.Instance.HasTalkedTo(requiredNPCName);
         bool requiredQuestCompleted = GameManager.Instance.IsQuestCompletedFrom(requiredNPCName);
@@ -215,6 +215,22 @@ public class NPCInteraction : MonoBehaviour
             activeDialogue = conditionalDialogueLines;
         else
             activeDialogue = dialogueLines;
+
+        // Check Score Quest logic
+        if (questActive && currentQuestIndex < quests.Length)
+        {
+            QuestData q = quests[currentQuestIndex];
+            if (q.questType == QuestType.ScoreChecker && EconomyManager.Instance != null)
+            {
+                if (EconomyManager.Instance.currentGold < q.requiredGold)
+                {
+                    if (q.notMetDialogue != null && q.notMetDialogue.Length > 0)
+                    {
+                        activeDialogue = q.notMetDialogue;
+                    }
+                }
+            }
+        }
 
         isReadingResult = false;
         pendingQuestStart = -1;
@@ -349,8 +365,7 @@ public class NPCInteraction : MonoBehaviour
         pendingQuestStart = -1;
         if (playerController != null) playerController.EnableMovement();
 
-        // ✅ RESUME GAME
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Resume Game
     }
 
     private void StartQuest()
@@ -421,6 +436,20 @@ public class NPCInteraction : MonoBehaviour
                 if (currentDamage >= currentQuest.requiredDamage)
                     CompleteQuest();
                 break;
+
+            case QuestType.ScoreChecker:
+                if (EconomyManager.Instance != null)
+                {
+                    int currentGold = EconomyManager.Instance.currentGold;
+
+                    // Don't show "0/10", just show description (Hidden mechanic)
+                    if (questDescriptionText != null)
+                        questDescriptionText.text = baseDesc;
+
+                    if (currentGold >= currentQuest.requiredGold)
+                        CompleteQuest();
+                }
+                break;
         }
     }
 
@@ -442,7 +471,6 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
-    // --- AUTOMATIC COMPLETION DIALOGUE LOGIC ---
     private void CompleteQuest()
     {
         if (currentQuestIndex >= quests.Length) return;
@@ -471,8 +499,8 @@ public class NPCInteraction : MonoBehaviour
 
         if (playerController != null) playerController.DisableMovement();
 
-        // ✅ PAUSE GAME DURING VICTORY LAP
-        Time.timeScale = 0f;
+        // ✅ FIX: Use almost-zero to prevent Unity errors
+        Time.timeScale = 0.00001f;
 
         StartCoroutine(PlayCompletionSequence(currentQuest));
     }
@@ -492,18 +520,14 @@ public class NPCInteraction : MonoBehaviour
             foreach (string line in quest.completeDialogue)
             {
                 if (dialogueText != null) dialogueText.text = line;
-
-                // ✅ USE REALTIME WAIT (Ignores Time.timeScale = 0)
                 yield return new WaitForSecondsRealtime(completionTextDuration);
             }
         }
         else
         {
-            // ✅ USE REALTIME WAIT
             yield return new WaitForSecondsRealtime(2f);
         }
 
-        // --- SEQUENCE FINISHED ---
         if (questTitleText != null) questTitleText.text = "";
         if (questDescriptionText != null) questDescriptionText.text = "";
 
@@ -512,7 +536,6 @@ public class NPCInteraction : MonoBehaviour
 
         if (playerController != null) playerController.EnableMovement();
 
-        // ✅ RESUME GAME
         Time.timeScale = 1f;
 
         if (quest.hasNextQuest)
@@ -547,11 +570,5 @@ public class NPCInteraction : MonoBehaviour
             if (dialogueText != null) dialogueText.text = activeDialogue[dialogueIndex];
             onComplete?.Invoke();
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
 }

@@ -404,11 +404,13 @@ MonoBehaviour:
   completionTextDuration: 4
   dialogueLines:
   - Ah, I can see the insignia of the knight in your hand, Good. I'll allow you pass.
+  invulnerableOnCompletion: 1
   requiresOtherNPC: 1
   requiredNPCName: Warrior
   conditionalDialogueLines:
-  - "I haven\u2019t seen your face around here. You can\u2019t go into the forest
-    yet. Do you have the knight\u2019s Insignia?"
+  - STOP RIGHT THERE!! Who are you? I haven't seen your face around here.
+  - You wanna go to the forest? i wont allow that.
+  - hmm... there is a way, be acknoledge by the Knight
   interactionRange: 2
   isQuestGiver: 1
   quests:
@@ -418,6 +420,7 @@ MonoBehaviour:
     targetNPCName: Warrior
     requiredKills: 0
     requiredDamage: 0
+    requiredGold: 0
     offersChoices: 1
     choices:
     - buttonLabel: Yes
@@ -433,6 +436,7 @@ MonoBehaviour:
       questIndexToTrigger: 0
     startDialogue: []
     completeDialogue: []
+    notMetDialogue: []
     objectsToActivate: []
     objectsToDeactivate: []
     hasNextQuest: 0
@@ -615,74 +619,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8f71a47d018f94dabc105d9dfe6e7e, type: 3}
---- !u!1 &589063990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 589063993}
-  - component: {fileID: 589063992}
-  - component: {fileID: 589063991}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &589063991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589063990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &589063992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589063990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &589063993
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589063990}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -35504,7 +35440,6 @@ SceneRoots:
   - {fileID: 1875085498}
   - {fileID: 205797142}
   - {fileID: 8962843022725714166}
-  - {fileID: 589063993}
   - {fileID: 1424486208}
   - {fileID: 2127066507}
   - {fileID: 985292052}
