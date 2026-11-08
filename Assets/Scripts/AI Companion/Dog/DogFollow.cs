@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
 public class DogFollow : MonoBehaviour
@@ -35,7 +35,7 @@ public class DogFollow : MonoBehaviour
         }
 
         if (player == null)
-            Debug.LogWarning("⚠️ DogFollow2D: No player found!");
+            Debug.LogWarning("[WARNING] DogFollow2D: No player found!");
     }
 
     private void Update()
@@ -86,7 +86,7 @@ public class DogFollow : MonoBehaviour
                 if (dogAI != null && dogAI.IsValidTarget(target))
                 {
                     dogAI.StartAttack(target);
-                    Debug.Log($"🐕 Dog commanded to attack: {target.name}");
+                    Debug.Log($"[Dog] Commanded to attack: {target.name}");
                 }
             }
             else
@@ -94,7 +94,7 @@ public class DogFollow : MonoBehaviour
                 if (dogAI != null)
                 {
                     dogAI.MoveTo(mousePos);
-                    Debug.Log("🐾 Dog moving to clicked position.");
+                    Debug.Log("[Dog] Moving to clicked position.");
                 }
             }
         }

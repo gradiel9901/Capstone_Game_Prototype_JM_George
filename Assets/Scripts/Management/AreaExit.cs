@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +14,13 @@ public class AreaExit : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
+            // Strictly guard against leaving before completing area quests
+            if (!CanLeaveCurrentArea())
+            {
+                Debug.LogWarning("[AreaExit] Player cannot exit area yet: Incomplete quests for this zone!");
+                return;
+            }
+
             // 1. Force Unpause to ensure physics/logic works
             Time.timeScale = 1f;
 
@@ -29,9 +36,44 @@ public class AreaExit : MonoBehaviour
         }
     }
 
+    private bool CanLeaveCurrentArea()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName.Equals("Tutorial", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (QuestManager.Instance != null)
+            {
+                return QuestManager.Instance.IsQuestCompleted("TUT_01") && QuestManager.Instance.IsQuestCompleted("TUT_02");
+            }
+            if (GameManager.Instance != null)
+            {
+                return GameManager.Instance.IsQuestCompletedFrom("Warrior") && GameManager.Instance.HasTalkedTo("Elf");
+            }
+            return false;
+        }
+        else if (sceneName.Equals("Scene1", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (QuestManager.Instance != null)
+                return QuestManager.Instance.IsQuestCompleted("SC1_01");
+        }
+        else if (sceneName.Equals("Scene2", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (QuestManager.Instance != null)
+                return QuestManager.Instance.IsQuestCompleted("SC2_01") && QuestManager.Instance.IsQuestCompleted("SC2_02");
+        }
+        else if (sceneName.Equals("Scene3", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (QuestManager.Instance != null)
+                return QuestManager.Instance.IsQuestCompleted("SC3_01") && QuestManager.Instance.IsQuestCompleted("SC3_02");
+        }
+
+        return true;
+    }
+
     private IEnumerator LoadSceneRoutine()
     {
-        // ✅ FIX 1: Use Realtime. This timer works even if the game is paused/frozen.
+        // [FIX 1] Use Realtime. This timer works even if the game is paused/frozen.
         // It replaces the 'while' loop which was getting stuck.
         yield return new WaitForSecondsRealtime(waitToLoadTime);
 
@@ -48,7 +90,7 @@ public class AreaExit : MonoBehaviour
             yield break;
         }
 
-        // ✅ FIX 2: Check Array bounds before loading
+        // [FIX 2] Check Array bounds before loading
         if (EconomyManager.Instance.currentGold >= 10)
         {
             // Check if we actually HAVE a second scene (Element 1)

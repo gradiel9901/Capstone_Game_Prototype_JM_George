@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,8 +44,19 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             GetComponent<PickUpSpawner>().DropItems();
 
+            // 🔹 Notify MMO Quest Manager and GameManager
+            if (QuestManager.Instance != null)
+            {
+                QuestManager.Instance.AdvanceObjective(QuestType.EnemyExtermination, gameObject.name, 1);
+            }
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.RegisterEnemyKill();
+            }
+
             // 🔹 Notify any active quest givers
-            NPCInteraction[] npcs = FindObjectsOfType<NPCInteraction>();
+            NPCInteraction[] npcs = FindObjectsByType<NPCInteraction>(FindObjectsSortMode.None);
             foreach (NPCInteraction npc in npcs)
             {
                 npc.RegisterEnemyKill();

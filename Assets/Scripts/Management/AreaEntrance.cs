@@ -5,21 +5,36 @@ using UnityEngine;
 public class AreaEntrance : MonoBehaviour
 {
     [SerializeField] private string transitionName;
-    AudioManager audioManager;
+    private AudioManager audioManager;
 
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = AudioManager.Instance;
+        if (audioManager == null)
+        {
+            GameObject audioObj = GameObject.FindGameObjectWithTag("Audio");
+            if (audioObj != null)
+                audioManager = audioObj.GetComponent<AudioManager>();
+            if (audioManager == null)
+                audioManager = FindAnyObjectByType<AudioManager>();
+        }
     }
+
     private void Start()
     {
-        if (transitionName == SceneManagement.Instance.SceneTransitionName)
+        if (SceneManagement.Instance != null && transitionName == SceneManagement.Instance.SceneTransitionName)
         {
-            PlayerController.Instance.transform.position = this.transform.position;
-            CameraController.Instance.SetPlayerCameraFollow();
-            audioManager.PlaySFX(audioManager.portalIn);
-            UIFade.Instance.FadeToClear();
+            if (PlayerController.Instance != null)
+                PlayerController.Instance.transform.position = this.transform.position;
 
+            if (CameraController.Instance != null)
+                CameraController.Instance.SetPlayerCameraFollow();
+
+            if (audioManager != null && audioManager.portalIn != null)
+                audioManager.PlaySFX(audioManager.portalIn);
+
+            if (UIFade.Instance != null)
+                UIFade.Instance.FadeToClear();
         }
     }
 }

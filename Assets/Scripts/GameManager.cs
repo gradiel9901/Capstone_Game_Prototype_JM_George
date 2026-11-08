@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
             Debug.Log($"Talked to {npcName}");
         }
 
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.AdvanceObjective(QuestType.TalkToNPC, npcName, 1);
+        }
+
         foreach (var questGiver in activeQuestGivers)
         {
             // Now "QuestType" is visible here because it's in QuestDefinitions.cs
@@ -47,6 +52,11 @@ public class GameManager : MonoBehaviour
 
     public void RegisterDummyDamage(int damage)
     {
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.AdvanceObjective(QuestType.RequirementQuest, "Dummy", damage);
+        }
+
         for (int i = activeQuestGivers.Count - 1; i >= 0; i--)
         {
             var questGiver = activeQuestGivers[i];
@@ -59,6 +69,11 @@ public class GameManager : MonoBehaviour
 
     public void RegisterEnemyKill()
     {
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.AdvanceObjective(QuestType.EnemyExtermination, "", 1);
+        }
+
         for (int i = activeQuestGivers.Count - 1; i >= 0; i--)
         {
             var questGiver = activeQuestGivers[i];
@@ -77,7 +92,6 @@ public class GameManager : MonoBehaviour
             npcQuestCompletion[npcName] = true;
 
         Debug.Log($"{npcName}'s quest completed!");
-        TryStartNextChainQuest(npcName);
     }
 
     public bool IsQuestCompletedFrom(string npcName)
@@ -97,7 +111,7 @@ public class GameManager : MonoBehaviour
             activeQuestGivers.Remove(questGiver);
     }
 
-    private void TryStartNextChainQuest(string npcName)
+    public void TryStartNextChainQuest(string npcName)
     {
         foreach (var questGiver in activeQuestGivers)
         {

@@ -27,6 +27,10 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         enemyPathfinding = GetComponent<EnemyPathfinding>();
+        if (enemyType == null)
+        {
+            enemyType = GetComponent<IEnemy>() as MonoBehaviour;
+        }
         state = State.Roaming;
     }
 
@@ -59,11 +63,17 @@ public class EnemyAI : MonoBehaviour
     {
         timeRoaming += Time.deltaTime;
 
-        enemyPathfinding.MoveTo(roamPosition);
-
-        if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) < attackRange)
+        if (enemyPathfinding != null)
         {
-            state = State.Attacking;
+            enemyPathfinding.MoveTo(roamPosition);
+        }
+
+        if (PlayerController.Instance != null && attackRange > 0f)
+        {
+            if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) < attackRange)
+            {
+                state = State.Attacking;
+            }
         }
 
         if (timeRoaming > roamChangeDirFloat)
@@ -74,27 +84,40 @@ public class EnemyAI : MonoBehaviour
 
     private void Attacking()
     {
+        if (PlayerController.Instance == null)
+        {
+            state = State.Roaming;
+            return;
+        }
+
         if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) > attackRange)
         {
             state = State.Roaming;
+            return;
         }
 
         if (attackRange != 0 && canAttack)
         {
-
             canAttack = false;
-            (enemyType as IEnemy).Attack();
+
+            if (enemyType is IEnemy enemy)
+            {
+                enemy.Attack();
+            }
 
             if (stopMovingWhileAttacking)
             {
-                enemyPathfinding.StopMoving();
+                enemyPathfinding?.StopMoving();
             }
             else
             {
-                enemyPathfinding.MoveTo(roamPosition);
+                enemyPathfinding?.MoveTo(roamPosition);
             }
 
-            StartCoroutine(AttackCooldownRoutine());
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(AttackCooldownRoutine());
+            }
         }
     }
 

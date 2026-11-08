@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 
 public class ScreenShakeManager : Singleton<ScreenShakeManager>
 {
@@ -9,11 +9,17 @@ public class ScreenShakeManager : Singleton<ScreenShakeManager>
 
     protected override void Awake() {
         base.Awake();
-        
         source = GetComponent<CinemachineImpulseSource>();
+        if (source == null)
+        {
+            source = FindAnyObjectByType<CinemachineImpulseSource>();
+        }
     }
 
     public void ShakeScreen() {
-        source.GenerateImpulse();
+        if (source != null)
+        {
+            source.GenerateImpulse();
+        }
     }
 }

@@ -27,7 +27,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
     protected override void Awake()
     {
         base.Awake();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = AudioManager.Instance;
+        if (audioManager == null)
+        {
+            GameObject audioObj = GameObject.FindGameObjectWithTag("Audio");
+            if (audioObj != null) audioManager = audioObj.GetComponent<AudioManager>();
+            if (audioManager == null) audioManager = FindAnyObjectByType<AudioManager>();
+        }
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
     }
@@ -108,10 +114,17 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (healthSlider == null)
         {
-            healthSlider = GameObject.Find(HEALTH_SLIDER_TEXT).GetComponent<Slider>();
+            GameObject sliderObj = GameObject.Find(HEALTH_SLIDER_TEXT);
+            if (sliderObj != null)
+                healthSlider = sliderObj.GetComponent<Slider>();
+            if (healthSlider == null)
+                healthSlider = FindAnyObjectByType<Slider>();
         }
 
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = currentHealth;
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
     }
 }

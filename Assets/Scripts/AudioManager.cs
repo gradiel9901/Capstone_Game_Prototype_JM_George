@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance { get; private set; }
+
     [Header("---------- Audio Source ----------")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
@@ -13,14 +15,28 @@ public class AudioManager : MonoBehaviour
     public AudioClip portalOut;
     public AudioClip dash;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
-        musicSource.clip = background;
-        musicSource.Play();
+        if (musicSource != null && background != null)
+        {
+            musicSource.clip = background;
+            musicSource.Play();
+        }
     }
 
     public void PlaySFX(AudioClip clip)
     {
-        SFXSource.PlayOneShot(clip);
+        if (SFXSource != null && clip != null)
+        {
+            SFXSource.PlayOneShot(clip);
+        }
     }
 }

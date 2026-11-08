@@ -7,33 +7,34 @@ public class PortalManager : MonoBehaviour
     public DemonKing demonKingHealth;
     public GameObject AreaExit;
     public PlayerController playerController;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        if (demonKingHealth == null)
+        {
+            demonKingHealth = FindAnyObjectByType<DemonKing>();
+        }
+
+        if (playerController == null)
+        {
+            playerController = PlayerController.Instance != null ? PlayerController.Instance : FindAnyObjectByType<PlayerController>();
+        }
     }
 
     public void Update()
     {
-        Debug.Log(demonKingHealth.enemyHealth.currentHealth);
-        if(playerController.CurrentScene == 5)
+        if (demonKingHealth == null)
         {
-           
-            
+            demonKingHealth = FindAnyObjectByType<DemonKing>();
+            if (demonKingHealth == null) return;
         }
-        //if(demonKingHealth = null)
-        //return;
-        if(demonKingHealth.enemyHealth.currentHealth <= 0)
-        {
-            AreaExit.SetActive(true);
-            
-        }
-    }
 
-    void Awake()
-    {
-        //demonKingHealth = GameObject.Find("DemonKing").GetComponent<DemonKing>();
-        //AreaExit = GameObject.Find("AreaExit_Scene4");
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (demonKingHealth.enemyHealth != null && demonKingHealth.enemyHealth.currentHealth <= 0)
+        {
+            if (AreaExit != null && !AreaExit.activeSelf)
+            {
+                AreaExit.SetActive(true);
+            }
+        }
     }
 }

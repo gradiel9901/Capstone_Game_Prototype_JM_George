@@ -20,7 +20,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void OnEnable()
     {
+        if (playerControls == null) playerControls = new PlayerControls();
         playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        try
+        {
+            playerControls?.Disable();
+        }
+        catch (System.Exception) { }
     }
 
     private void Start()

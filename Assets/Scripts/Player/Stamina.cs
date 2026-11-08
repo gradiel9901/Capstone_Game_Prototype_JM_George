@@ -23,7 +23,8 @@ public class Stamina : Singleton<Stamina>
     }
 
     private void Start() {
-        staminaContainer = GameObject.Find(STAMINA_CONTAINER_TEXT).transform;
+        GameObject containerObj = GameObject.Find(STAMINA_CONTAINER_TEXT);
+        if (containerObj != null) staminaContainer = containerObj.transform;
     }
 
     public void UseStamina() {
@@ -47,7 +48,13 @@ public class Stamina : Singleton<Stamina>
     }
 
     private void UpdateStaminaImages() {
-        for (int i = 0; i < maxStamina; i++)
+        if (staminaContainer == null) {
+            GameObject containerObj = GameObject.Find(STAMINA_CONTAINER_TEXT);
+            if (containerObj != null) staminaContainer = containerObj.transform;
+        }
+        if (staminaContainer == null) return;
+
+        for (int i = 0; i < maxStamina && i < staminaContainer.childCount; i++)
         {
             if (i <= CurrentStamina - 1) {
                 staminaContainer.GetChild(i).GetComponent<Image>().sprite = fullStaminaImage;

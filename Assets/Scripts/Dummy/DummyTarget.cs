@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 
 public class DummyTarget : MonoBehaviour
@@ -49,10 +49,19 @@ public class DummyTarget : MonoBehaviour
 
         ShowFloatingText(damage);
 
-        // ✅ Report to Warrior Quest
+        // Report to Warrior Quest
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.AdvanceObjective(QuestType.RequirementQuest, "Dummy", damage);
+        }
+
         if (warriorNPC != null)
         {
             warriorNPC.RegisterDamage(damage);
+        }
+        else if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RegisterDummyDamage(damage);
         }
 
         if (currentHealth <= 0)

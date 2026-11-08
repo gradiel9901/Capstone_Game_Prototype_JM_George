@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Staff : MonoBehaviour, IWeapon
@@ -59,6 +59,7 @@ public class Staff : MonoBehaviour, IWeapon
 
     private void AutoTargetClosestEnemy()
     {
+        if (PlayerController.Instance == null) return;
         targetRefreshTimer -= Time.deltaTime;
         if (targetRefreshTimer > 0) return;
         targetRefreshTimer = targetRefreshRate;
@@ -89,6 +90,7 @@ public class Staff : MonoBehaviour, IWeapon
     /// </summary>
     private void FacePlayerDirection()
     {
+        if (PlayerController.Instance == null || ActiveWeapon.Instance == null) return;
         if (PlayerController.Instance.FacingLeft)
         {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 180, 0);

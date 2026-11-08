@@ -22,7 +22,17 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private void OnEnable()
     {
+        if (playerControls == null) playerControls = new PlayerControls();
         playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        try
+        {
+            playerControls?.Disable();
+        }
+        catch (System.Exception) { }
     }
 
     public void EquipStartingWeapon()

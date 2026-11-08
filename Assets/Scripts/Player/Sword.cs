@@ -72,6 +72,7 @@ public class Sword : MonoBehaviour, IWeapon
     /// </summary>
     private void FacePlayerDirection()
     {
+        if (PlayerController.Instance == null || ActiveWeapon.Instance == null || weaponCollider == null) return;
         if (PlayerController.Instance.FacingLeft)
         {
             // Face left

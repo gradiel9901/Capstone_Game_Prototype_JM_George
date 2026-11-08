@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class DogAIAction : MonoBehaviour
 {
@@ -36,14 +36,14 @@ public class DogAIAction : MonoBehaviour
         }
     }
 
-    // ✅ Called from DogFollow.cs when clicking an enemy/dummy
+    // [Action] Called from DogFollow.cs when clicking an enemy/dummy
     public void StartAttack(Transform target)
     {
         currentTarget = target;
         isMoving = false;
     }
 
-    // ✅ Called from DogFollow.cs when clicking empty ground
+    // [Action] Called from DogFollow.cs when clicking empty ground
     public void MoveTo(Vector2 destination)
     {
         moveTarget = destination;

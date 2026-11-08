@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,14 +22,20 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool facingLeft = false;
     private bool isDashing = false;
-    private bool canMove = true; // ✅ Movement toggle
+    private bool canMove = true; // Movement toggle
 
     AudioManager audioManager;
 
     protected override void Awake()
     {
         base.Awake();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = AudioManager.Instance;
+        if (audioManager == null)
+        {
+            GameObject audioObj = GameObject.FindGameObjectWithTag("Audio");
+            if (audioObj != null) audioManager = audioObj.GetComponent<AudioManager>();
+            if (audioManager == null) audioManager = FindAnyObjectByType<AudioManager>();
+        }
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
@@ -47,12 +53,20 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnEnable()
     {
+        if (playerControls == null) playerControls = new PlayerControls();
         playerControls.Enable();
     }
 
     private void OnDisable()
     {
-        playerControls.Disable();
+        try
+        {
+            playerControls?.Disable();
+        }
+        catch (System.Exception)
+        {
+            // Suppress exception during teardown or scene unload
+        }
     }
 
     private void Update()
@@ -72,7 +86,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (!canMove)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -143,7 +157,7 @@ public class PlayerController : Singleton<PlayerController>
     public void DisableMovement()
     {
         canMove = false;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 
     public void EnableMovement()

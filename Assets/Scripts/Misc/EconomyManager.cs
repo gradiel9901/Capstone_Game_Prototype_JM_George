@@ -10,14 +10,26 @@ public class EconomyManager : Singleton<EconomyManager>
 
     const string COIN_AMOUNT_TEXT = "Gold Amount Text";
 
-    public void UpdateCurrentGold() {
-        currentGold += 1;
+    public void AddGold(int amount)
+    {
+        currentGold += amount;
 
         if (goldText == null) {
-            goldText = GameObject.Find(COIN_AMOUNT_TEXT).GetComponent<TMP_Text>();
+            GameObject coinObj = GameObject.Find(COIN_AMOUNT_TEXT);
+            if (coinObj != null) goldText = coinObj.GetComponent<TMP_Text>();
         }
 
-        goldText.text = currentGold.ToString("D3");
+        if (goldText != null)
+            goldText.text = currentGold.ToString("D3");
+
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.AdvanceObjective(QuestType.ScoreChecker, "Gold", currentGold);
+        }
+    }
+
+    public void UpdateCurrentGold() {
+        AddGold(1);
     }
     public void UpdateDeadGold()
     {
@@ -25,9 +37,11 @@ public class EconomyManager : Singleton<EconomyManager>
 
         if (goldText == null)
         {
-            goldText = GameObject.Find(COIN_AMOUNT_TEXT).GetComponent<TMP_Text>();
+            GameObject coinObj = GameObject.Find(COIN_AMOUNT_TEXT);
+            if (coinObj != null) goldText = coinObj.GetComponent<TMP_Text>();
         }
 
-        goldText.text = currentGold.ToString("D3");
+        if (goldText != null)
+            goldText.text = currentGold.ToString("D3");
     }
 }

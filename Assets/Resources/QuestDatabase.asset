@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: QuestDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::QuestDatabaseSO
+  quests:
+  - questID: TUT_01
+    questTitle: Resolve
+    questDescription: Attack the Training Dummy to prove your resolve to the Warrior Chief.
+    category: 0
+    sceneName: Tutorial
+    prerequisiteQuestID: 
+    nextQuestInChainID: TUT_02
+    startNpcID: Warrior
+    turnInNpcID: Warrior
+    questType: 3
+    targetID: Dummy
+    requiredAmount: 10
+    goldReward: 5
+    offerDialogue:
+    - speaker: Warrior
+      text: Hello, traveler. I understand you want to help, but I cannot send you to your death.
+    - speaker: Warrior
+      text: Show me your resolve! Attack the Training Dummy until you deal 10 damage.
+    - speaker: Player
+      text: Watch me strike.
+    inProgressDialogue:
+    - speaker: Warrior
+      text: Keep striking the Training Dummy. Show me your true technique!
+    turnInDialogue:
+    - speaker: Warrior
+      text: Impressive strikes! I can see your potential, but be careful out there.
+    - speaker: Warrior
+      text: Take my insignia and show it to the Elf gatekeeper. She will allow you to pass.
+    completedDialogue: []
+  - questID: TUT_02
+    questTitle: Explore the Dense Forest
+    questDescription: Present the Warrior's Insignia to the Elf Gatekeeper to unlock the forest pathway.
+    category: 0
+    sceneName: Tutorial
+    prerequisiteQuestID: TUT_01
+    nextQuestInChainID: SC1_01
+    startNpcID: Warrior
+    turnInNpcID: Elf
+    questType: 2
+    targetID: Elf
+    requiredAmount: 1
+    goldReward: 5
+    offerDialogue:
+    - speaker: Warrior
+      text: Head over to the eastern gate. The Elf guards the entrance to the forest.
+    - speaker: Player
+      text: I'll speak with her at once.
+    inProgressDialogue:
+    - speaker: Elf
+      text: STOP RIGHT THERE! Who are you? You cannot enter the forest without the Knight's approval!
+    turnInDialogue:
+    - speaker: Elf
+      text: Ah, I see the insignia of the Knight Chief in your hand.
+    - speaker: Elf
+      text: Very well, traveler. I'll remove the barrier and grant you permission to pass into the forest.
+    completedDialogue: []
+  - questID: SC1_01
+    questTitle: Lingering Corruption
+    questDescription: Defeat 4 corrupted Blue Slimes to defend the forest outpost.
+    category: 0
+    sceneName: Scene1
+    prerequisiteQuestID: TUT_02
+    nextQuestInChainID: SC2_01
+    startNpcID: Red Knight
+    turnInNpcID: Red Knight
+    questType: 1
+    targetID: Blue Slime
+    requiredAmount: 4
+    goldReward: 10
+    offerDialogue:
+    - speaker: Red Knight
+      text: Are you the traveler who was acknowledged by my apprentice? Good!
+    - speaker: Red Knight
+      text: The influence of the Demon King is corrupting the elemental spirits into foul slimes.
+    - speaker: Red Knight
+      text: Slay 4 Blue Slimes before they escape the perimeter and threaten nearby villages!
+    - speaker: Player
+      text: Consider it done.
+    inProgressDialogue:
+    - speaker: Red Knight
+      text: The slimes are still multiplying. Eliminate 4 of them to secure the area!
+    turnInDialogue:
+    - speaker: Red Knight
+      text: Thank you, traveler, for helping me defend the outpost!
+    - speaker: Red Knight
+      text: "Be cautious ahead\u2014the creatures of the deep forest grow far more aggressive."
+    completedDialogue: []
+  - questID: SC2_01
+    questTitle: Dire Situation
+    questDescription: Slay 6 demonic beasts threatening the merchant caravan.
+    category: 0
+    sceneName: Scene2
+    prerequisiteQuestID: SC1_01
+    nextQuestInChainID: SC2_02
+    startNpcID: Merchant
+    turnInNpcID: Merchant
+    questType: 1
+    targetID: HellBeast
+    requiredAmount: 6
+    goldReward: 15
+    offerDialogue:
+    - speaker: Merchant
+      text: Argh! Traveler, please help us! Demonic beasts ambushed my caravan!
+    - speaker: Merchant
+      text: Drive back 6 of these monsters so we can search the area!
+    - speaker: Player
+      text: Hold tight, I'll clear the monsters!
+    inProgressDialogue:
+    - speaker: Merchant
+      text: The beasts are still prowling close by. Please defeat 6 of them!
+    turnInDialogue:
+    - speaker: Merchant
+      text: You defeated them! But my daughter ran deeper into the woods to escape...
+    - speaker: Merchant
+      text: Please, you must find her!
+    completedDialogue: []
+  - questID: SC2_02
+    questTitle: Dire Situation II
+    questDescription: Locate the Merchant's lost daughter in the forest clearing.
+    category: 0
+    sceneName: Scene2
+    prerequisiteQuestID: SC2_01
+    nextQuestInChainID: SC3_01
+    startNpcID: Merchant
+    turnInNpcID: Daughter
+    questType: 2
+    targetID: Daughter
+    requiredAmount: 1
+    goldReward: 10
+    offerDialogue:
+    - speaker: Merchant
+      text: She was fleeing toward the northern path. Bring her to safety!
+    - speaker: Player
+      text: I'll bring her back safely.
+    inProgressDialogue:
+    - speaker: Daughter
+      text: Where is my father? Have you seen him? Please help me!
+    turnInDialogue:
+    - speaker: Daughter
+      text: You spoke with my father? Oh, thank heavens!
+    - speaker: Daughter
+      text: Thank you so much, brave traveler! The barrier to the grove is open now!
+    completedDialogue: []
+  - questID: SC3_01
+    questTitle: Wraith
+    questDescription: Eliminate 3 Wraiths to rescue the pinned Hero.
+    category: 0
+    sceneName: Scene3
+    prerequisiteQuestID: SC2_02
+    nextQuestInChainID: SC3_02
+    startNpcID: Elf Scout
+    turnInNpcID: Elf Scout
+    questType: 1
+    targetID: Wraith
+    requiredAmount: 3
+    goldReward: 20
+    offerDialogue:
+    - speaker: Elf Scout
+      text: Argh!... Who are you? The Knight's Insignia?! You came to help?
+    - speaker: Elf Scout
+      text: You must help the Hero! He sacrificed himself to draw the resentment spirits away from me!
+    - speaker: Elf Scout
+      text: Slay 3 Wraiths surrounding the inner sanctuary!
+    - speaker: Player
+      text: I'm on it!
+    inProgressDialogue:
+    - speaker: Elf Scout
+      text: The demonic energy calls forth resentful spirits. Slay the 3 Wraiths!
+    turnInDialogue:
+    - speaker: Elf Scout
+      text: You banished the wraiths! Quick, go speak with the Hero before he confronts the demon lord!
+    completedDialogue: []
+  - questID: SC3_02
+    questTitle: Astaroth
+    questDescription: Gather 10 Gold (Shards of Urim) to empower the blade for the final battle against Astaroth.
+    category: 0
+    sceneName: Scene3
+    prerequisiteQuestID: SC3_01
+    nextQuestInChainID: SC4_01
+    startNpcID: Hero
+    turnInNpcID: Hero
+    questType: 4
+    targetID: Gold
+    requiredAmount: 10
+    goldReward: 25
+    offerDialogue:
+    - speaker: Hero
+      text: A traveler? Why are you here so deep in the forest?
+    - speaker: Hero
+      text: What?! The outpost knights acknowledged you? Then we truly have a fighting chance.
+    - speaker: Hero
+      text: Beyond this point lies Astaroth, the Demon King. To pierce his dark aegis, you must possess 10 Shards of Urim (Gold).
+    - speaker: Player
+      text: I will find the shards and face the Demon King.
+    inProgressDialogue:
+    - speaker: Hero
+      text: Search the ancient chests and defeat remaining foes. You need 10 Gold (Shards of Urim) before entering the portal!
+    turnInDialogue:
+    - speaker: Hero
+      text: You have collected all 10 Shards of Urim?!
+    - speaker: Hero
+      text: Extraordinary! With that power in your hand, Astaroth can be slain once and for all. Enter the portal!
+    completedDialogue: []
+  - questID: SC4_01
+    questTitle: The Legend of Lam-ang
+    questDescription: Hear the ancient tale of heroism before vanquishing the Demon King.
+    category: 0
+    sceneName: Scene4
+    prerequisiteQuestID: SC3_02
+    nextQuestInChainID: 
+    startNpcID: Princess
+    turnInNpcID: Princess
+    questType: 2
+    targetID: Princess
+    requiredAmount: 1
+    goldReward: 50
+    offerDialogue:
+    - speaker: Princess
+      text: You know, someone like you saved our land long ago. His name was Lam-ang.
+    - speaker: Princess
+      text: Strong as anyone, even as a child. He set out to avenge his fallen kin with courage unmatched.
+    - speaker: Princess
+      text: Accompanied by a fierce gray forest dog, he conquered the darkness and returned light to our realm.
+    - speaker: Princess
+      text: Now it is your turn, hero. Cleanse this throne room!
+    - speaker: Player
+      text: The Demon King falls today.
+    inProgressDialogue:
+    - speaker: Princess
+      text: Slay the Demon King in the throne room and restore our kingdom!
+    turnInDialogue:
+    - speaker: Princess
+      text: You have triumphed over the Demon King! Peace is restored across the realm!
+    completedDialogue: []
